@@ -1,0 +1,34 @@
+.introduction {
+  &__container {
+    position: relative;
+    padding: 20px;
+  }
+  &__chart {
+    position: absolute;
+    z-index: 1;
+    width: 122px;
+    height: 122px;
+    top: 0;
+    right: 17px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__title {
+    font-size: 38px;
+    letter-spacing: -0.01em;
+    line-height: 0.9;
+  }
+  &__front-layer {
+    position: relative;
+    z-index: 2;
+    padding-top: 115px;
+  }
+  &__description {
+    padding-top: 17px;
+    font-size: 14px;
+    line-height: 140%;
+    padding-bottom: 24px;
+  }
+}

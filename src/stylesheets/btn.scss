@@ -1,0 +1,46 @@
+.btn {
+  color: #fff;
+  background-color: $text-color;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  padding-left: 32px;
+  padding-right: 32px;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  border: none;
+  cursor: pointer;
+  &__arrow {
+    margin-left: 12px;
+  }
+  &__text {
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    span {
+      color: transparent;
+    }
+    &::before,
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: transform .35s $easing;
+    }
+    &::after {
+      transform: translate(0, 100%);
+    }
+    .btn:hover:not(:disabled) & {
+      &::before {
+        transform: translate(0, -100%);
+      }
+      &::after {
+        transform: none;
+      }
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+}

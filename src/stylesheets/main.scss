@@ -1,0 +1,13 @@
+html,
+body {
+  height: 100%;
+  color: $text-color;
+}
+a {
+  color: $text-color;
+  text-decoration: none;
+}
+.main {
+  min-height: 100%;
+  overflow: hidden;
+}
