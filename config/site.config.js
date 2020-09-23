@@ -15,7 +15,7 @@ const config = {
   site_description: 'ABC',
 
   // Your website's URL, used for sitemap
-  site_url: '',
+  site_url: 'https://umer4ik.github.io/abc',
 
   // Google Analytics tracking ID (leave blank to disable)
   googleAnalyticsUA: '',
