@@ -31,12 +31,14 @@
     &::after {
       transform: translate(0, 100%);
     }
-    .btn:hover:not(:disabled) & {
-      &::before {
-        transform: translate(0, -100%);
-      }
-      &::after {
-        transform: none;
+    @include desktop {
+      .btn:hover:not(:disabled) & {
+        &::before {
+          transform: translate(0, -100%);
+        }
+        &::after {
+          transform: none;
+        }
       }
     }
   }

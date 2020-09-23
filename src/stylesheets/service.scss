@@ -1,0 +1,21 @@
+.service {
+  border-bottom: 1px solid rgba($text-color, .2);
+  margin-bottom: 26px;
+  padding-bottom: 31px;
+  &__number {
+    font-size: 14px;
+    line-height: 140%;
+  }
+  &__title {
+    padding-top: 17px;
+    font-size: 22px;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+  }
+  &__description {
+    padding-top: 12px;
+    font-size: 14px;
+    line-height: 140%;
+    padding-bottom: 14px;
+  }
+}
