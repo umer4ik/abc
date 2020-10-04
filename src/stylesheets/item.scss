@@ -1,0 +1,19 @@
+.item {
+  padding-top: 27px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $text-color;
+  font-size: 26px;
+  line-height: 90%;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  position: relative;
+  &__title {
+    margin-right: auto;
+  }
+  &__number {
+    margin-left: auto;
+    flex-basis: 45px;
+    flex-shrink: 0;
+  }
+}

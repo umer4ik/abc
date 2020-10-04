@@ -1,0 +1,30 @@
+.project-thumb {
+  &__container {
+    padding: 30px;
+    background-color: #fff;
+  }
+  &__number {
+    font-size: 14px;
+    line-height: 140%;
+  }
+  &__title {
+    font-size: 22px;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    padding-top: 17px;
+  }
+  &__description {
+    font-size: 14px;
+    line-height: 140%;
+    padding-top: 12px;
+  }
+  &__btn {
+    margin-top: 19px;
+    margin-bottom: 30px;
+  }
+  &__image {
+    &::before {
+      content: 'gif will be here...';
+    }
+  }
+}

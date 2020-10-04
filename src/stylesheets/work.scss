@@ -1,0 +1,19 @@
+.work {
+  background: linear-gradient(to bottom, #fff, #FCF3DA 166px, #FCF3DA);
+  padding-top: 100px;
+  &__container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  &__title {
+    font-size: 22px;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    padding-bottom: 29px;
+    border-bottom: 2px solid $text-color;
+  }
+  &__partners {
+    padding-top: 46px;
+    padding-bottom: 50px;
+  }
+}
