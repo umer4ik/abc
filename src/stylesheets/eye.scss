@@ -1,0 +1,41 @@
+.eye {
+  --pupil-x: 0;
+  --pupil-y: 0;
+  --color-whites: var(--fg, #fff);
+  --color-lid: var(--bg, #fff);
+  --color-pupil: var(--bg, #000);
+  --color-glint: var(--fg, #fff);
+  --scale: 0.75;
+  max-width: 100%;
+  max-height: 100vh;
+  fill: none;
+  transform: scale(var(--scale));
+}
+.lids {
+  stroke: var(--color-lid);
+  stroke-width: 5%;
+}
+.whites {
+  fill: var(--color-whites);
+}
+.pupil {
+  fill: var(--color-pupil);
+  cx: 500px;
+  cy: 500px;
+}
+.glint {
+  fill: var(--color-glint);
+}
+.pupil-group {
+  transform: translate(calc(var(--pupil-x) * 1px), calc(var(--pupil-y) * 1px));
+}
+#base-eye {
+  display: none;
+}
+#grid {
+  display: block;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background-color: #000;
+}

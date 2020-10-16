@@ -1,6 +1,7 @@
 // Load jQuery from NPM
 import $ from 'jquery';
 import { tns } from 'tiny-slider/src/tiny-slider';
+import initEye from './eye';
 
 window.jQuery = $;
 window.$ = $;
@@ -27,3 +28,7 @@ projectsCarousel.events.on('indexChanged', (info) => {
 $('.projects-section__carousel-nav-item').on('click', (e) => {
   projectsCarousel.goTo($(e.currentTarget).attr('data-slide'));
 });
+
+setTimeout(() => {
+  initEye();
+}, 1000);

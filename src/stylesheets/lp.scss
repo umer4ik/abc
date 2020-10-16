@@ -1,0 +1,65 @@
+.lp {
+  display: none;
+  @include wider-than-tablet {
+    display: flex;
+    position: fixed;
+    z-index: 10;
+    padding: 26px 50px;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__logo {
+    @include wider-than-tablet {
+      display: block;
+      // position: fixed;
+      z-index: 10;
+      left: 50px;
+      top: 26px;
+    }
+  }
+  &__logo-img {
+    width: 106px;
+    height: 35px;
+  }
+  &__scroll-block {
+    display: flex;
+    align-items: center;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+    position: absolute;
+  }
+  &__scroll {
+    height: 1px;
+    width: 162px;
+    position: relative;
+  }
+  &__scroll-rail {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($text-color, .2);
+    top: 0;
+    left: 0;
+  }
+  &__scroll-trigger {
+    position: absolute;
+    width: 24px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: $text-color;
+  }
+  &__title {
+    font-size: 14px;
+    display: inline-block;
+    white-space: nowrap;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+  &__scroll-wrap {
+    position: relative;
+    transform: translateX(-156px);
+  }
+}

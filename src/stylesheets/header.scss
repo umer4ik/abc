@@ -1,8 +1,28 @@
 .header {
+  @include wider-than-tablet {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 23px;
+    z-index: 10;
+  }
+  &__logo {
+    img {
+      width: 86px;
+      height: 29px;
+    }
+    @include wider-than-tablet {
+      display: none;
+    }
+  }
   &__container {
     padding: 20px;
     display: flex;
     align-items: center;
+    @include wider-than-tablet {
+      @include section;
+    }
   }
   &__links {
     margin-left: auto;
@@ -10,11 +30,28 @@
     line-height: 130%;
     display: flex;
     align-items: center;
+    @include wider-than-tablet {
+      margin-right: auto;
+      flex-grow: 1;
+      margin-left: 0;
+      align-items: baseline;
+      font-size: 14px;
+    }
   }
   &__link {
     margin-right: 16px;
+    &--email {
+      display: none;
+      @include wider-than-tablet {
+        display: inline;
+        margin-left: auto;
+      }
+    }
   }
   &__btn {
     margin-left: 4px;
+    @include wider-than-tablet {
+      display: none;
+    }
   }
 }
