@@ -66,5 +66,14 @@
       height: auto;
       flex-grow: 0;
     }
+    &:nth-child(1) {
+      background-image: url('../images/1.gif');
+    }
+    &:nth-child(2) {
+      background-image: url('../images/2.gif');
+    }
+    &:nth-child(3) {
+      background-image: url('../images/3.gif');
+    }
   }
 }

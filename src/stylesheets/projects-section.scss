@@ -28,8 +28,8 @@
     margin-right: -42%;
     @include wider-than-tablet {
       padding-top: 48px;
-      margin-left: -35%;
-      margin-right: -5%;
+      margin-left: -45%;
+      margin-right: -33%;
     }
   }
   &__footer {
@@ -52,6 +52,9 @@
     opacity: 0.4;
     &.active {
       opacity: 1;
+    }
+    @include wider-than-tablet {
+      cursor: pointer;
     }
   }
 }
