@@ -1,0 +1,9 @@
+.projects-carousel {
+  cursor: grab;
+  &.dragging {
+    cursor: grabbing;
+  }
+  .tns-ovh {
+    overflow: visible;
+  }
+}

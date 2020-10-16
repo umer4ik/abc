@@ -1,19 +1,36 @@
 .projects-section {
   padding-top: 100px;
   background: linear-gradient(to bottom, #FCF3DA, #EBEDF0 140px, #EBEDF0);
+  @include wider-than-tablet {
+    padding-top: 295px;
+  }
   &__container {
     padding-right: 20px;
     padding-left: 20px;
+    @include wider-than-tablet {
+      @include section;
+    }
   }
   &__title {
     font-size: 26px;
     line-height: 90%;
     letter-spacing: -0.01em;
+    @include wider-than-tablet {
+      font-size: 50px;
+      line-height: 85%;
+      letter-spacing: -0.02em;
+      max-width: 464px;
+    }
   }
   &__carousel {
     padding-top: 27px;
     margin-left: -47.5%;
     margin-right: -42%;
+    @include wider-than-tablet {
+      padding-top: 48px;
+      margin-left: -35%;
+      margin-right: -5%;
+    }
   }
   &__footer {
     display: flex;

@@ -10,9 +10,6 @@ const html = {
   use: [
     {
       loader: 'html-loader',
-      options: {
-        interpolate: true,
-      },
     },
   ],
 };
@@ -34,7 +31,7 @@ const js = {
 
 // Style loaders
 const styleLoader = {
-  loader: 'style-loader'
+  loader: 'style-loader',
 };
 
 const cssLoader = {

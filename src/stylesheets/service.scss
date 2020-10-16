@@ -2,20 +2,59 @@
   border-bottom: 1px solid rgba($text-color, .2);
   margin-bottom: 26px;
   padding-bottom: 31px;
+  @include wider-than-tablet {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-right: 80px;
+    border-bottom: 0;
+  }
   &__number {
     font-size: 14px;
     line-height: 140%;
+    @include wider-than-tablet {
+      font-size: 16px;
+      line-height: 150%;
+      transition: transform .35s $easing;
+      transition-delay: .1s;
+      .service:hover & {
+        transform: translateX(10px);
+        transition-delay: 0s;
+      }
+    }
   }
   &__title {
     padding-top: 17px;
     font-size: 22px;
     line-height: 90%;
     letter-spacing: -0.01em;
+    @include wider-than-tablet {
+      padding-top: 28px;
+      font-size: 30px;
+      line-height: 110%;
+      transition: transform .35s $easing;
+      transition-delay: .05s;
+      .service:hover & {
+        transform: translateX(10px);
+        transition-delay: .05s;
+      }
+    }
   }
   &__description {
     padding-top: 12px;
     font-size: 14px;
     line-height: 140%;
     padding-bottom: 14px;
+    @include wider-than-tablet {
+      padding-top: 13px;
+      font-size: 16px;
+      line-height: 150%;
+      padding-bottom: 35px;
+      transition: transform .35s $easing;
+      transition-delay: 0s;
+      .service:hover & {
+        transform: translateX(10px);
+        transition-delay: .1s;
+      }
+    }
   }
 }

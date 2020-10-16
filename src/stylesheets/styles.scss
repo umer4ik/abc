@@ -6,6 +6,8 @@
 @import "main.scss";
 // libraries
 @import "~tiny-slider/dist/tiny-slider.css";
+@import "menu-hover.scss";
+@import "cursor-drag.scss";
 
 // common things
 @import "btn.scss";
@@ -28,3 +30,4 @@
 @import "footer.scss";
 @import "to-top-faw.scss";
 @import "eye.scss";
+@import "projects-carousel.scss";

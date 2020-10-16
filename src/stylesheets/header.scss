@@ -40,11 +40,56 @@
   }
   &__link {
     margin-right: 16px;
+    @include wider-than-tablet {
+      display: inline-block;
+      position: relative;
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+        height: 1px;
+        width: 100%;
+        background-color: $text-color;
+        bottom: 0;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: 100% 50%;
+        transition: transform .35s $easing;
+      }
+      &::after {
+        display: none;
+      }
+      &:hover::before {
+        transform-origin: 0 50%;
+        transform: scaleX(1);
+      }
+    }
     &--email {
       display: none;
       @include wider-than-tablet {
-        display: inline;
+        display: inline-block;
         margin-left: auto;
+        &::before {
+          transform: scaleX(1);
+          transition: none;
+        }
+        &::after {
+          display: inline-block;
+          transition: none;
+        }
+        &:hover {
+          &::before {
+            transform-origin: 100% 50%;
+            transform: scaleX(0);
+            transition: transform .35s $easing;
+          }
+          &::after {
+            transform-origin: 0% 50%;
+            transform: scaleX(1);
+            transition: transform .35s $easing;
+            transition-delay: .35s;
+          }
+        }
       }
     }
   }

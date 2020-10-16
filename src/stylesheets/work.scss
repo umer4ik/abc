@@ -1,9 +1,15 @@
 .work {
   background: linear-gradient(to bottom, #fff, #FCF3DA 166px, #FCF3DA);
   padding-top: 100px;
+  @include wider-than-tablet {
+    padding-top: 295px;
+  }
   &__container {
     padding-left: 20px;
     padding-right: 20px;
+    @include wider-than-tablet {
+      @include section;
+    }
   }
   &__title {
     font-size: 22px;
@@ -11,9 +17,18 @@
     letter-spacing: -0.01em;
     padding-bottom: 29px;
     border-bottom: 2px solid $text-color;
+    @include wider-than-tablet {
+      font-size: 50px;
+      line-height: 85%;
+      letter-spacing: -0.02em;
+      padding-bottom: 41px;
+    }
   }
   &__partners {
     padding-top: 46px;
     padding-bottom: 50px;
+    @include wider-than-tablet {
+      padding-top: 58px;
+    }
   }
 }

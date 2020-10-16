@@ -1,14 +1,33 @@
 .services-introduction {
   border-bottom: 2px solid $text-color;
   padding-bottom: 18px;
+  @include wider-than-tablet {
+    display: flex;
+    align-items: flex-start;
+    padding-bottom: 45px;
+  }
   &__title {
     font-size: 26px;
     line-height: 90%;
     letter-spacing: -0.01em;
     padding-bottom: 13px;
+    @include wider-than-tablet {
+      font-size: 50px;
+      line-height: 85%;
+      letter-spacing: -0.02em;
+      flex-basis: 340px;
+      margin-right: 43px;
+      flex-grow: 1;
+      min-width: 340px;
+    }
   }
   &__description {
     font-size: 14px;
     line-height: 140%;
+    @include wider-than-tablet {
+      font-size: 20px;
+      line-height: 130%;
+      padding-right: 100px;
+    }
   }
 }

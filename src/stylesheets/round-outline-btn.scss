@@ -11,6 +11,10 @@
   position: relative;
   transition: transform .35s $easing;
   padding: 0;
+  @include wider-than-tablet {
+    width: 60px;
+    height: 60px;
+  }
   svg {
     position: relative;
     z-index: 2;

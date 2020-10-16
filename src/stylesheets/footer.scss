@@ -1,26 +1,54 @@
 .footer {
   background: linear-gradient(to bottom, #EBEDF0, #fff 100px, #fff);
   padding-top: 130px;
+  @include wider-than-tablet {
+    background: linear-gradient(to bottom, #EBEDF0, #fff);
+    height: 100vh;
+    padding-top: 0;
+  }
   &__container {
     padding-left: 20px;
     padding-right: 20px;
+    @include wider-than-tablet {
+      @include section;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+    }
   }
   &__text {
     font-size: 18px;
     line-height: 90%;
     letter-spacing: -0.01em;
     padding-bottom: 26px;
+    @include wider-than-tablet {
+      font-size: 30px;
+      line-height: 100%;
+      padding-bottom: 39px;
+      margin-top: auto;
+    }
   }
   &__mail {
     font-size: 31.7066px;
     line-height: 85%;
     letter-spacing: -0.02em;
     text-decoration: underline;
+    @include wider-than-tablet {
+      font-size: 80px;
+      line-height: 85%;
+      letter-spacing: -0.02em;
+      margin-bottom: auto;
+    }
   }
   &__footer {
     padding-top: 76px;
     font-size: 14px;
     padding-bottom: 30px;
+    @include wider-than-tablet {
+      display: flex;
+      justify-content: space-between;
+    }
   }
   &__copyright {
     line-height: 120%;
@@ -28,6 +56,9 @@
   &__designers {
     padding-top: 23px;
     line-height: 130%;
+    @include wider-than-tablet {
+      padding-top: 0;
+    }
     a {
       text-decoration: underline;
     }

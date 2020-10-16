@@ -2,29 +2,69 @@
   &__container {
     padding: 30px;
     background-color: #fff;
+    @include wider-than-tablet {
+      padding: 20px;
+      display: flex;
+    }
+  }
+  &__info {
+    @include wider-than-tablet {
+      flex-grow: 1;
+      margin-right: 20px;
+      overflow: hidden;
+    }
+    @include desktop {
+      margin-right: 90px;
+    }
   }
   &__number {
     font-size: 14px;
     line-height: 140%;
+    @include wider-than-tablet {
+      font-size: 16px;
+      line-height: 150%;
+    }
   }
   &__title {
     font-size: 22px;
     line-height: 90%;
     letter-spacing: -0.01em;
     padding-top: 17px;
+    @include wider-than-tablet {
+      font-size: 30px;
+      line-height: 110%;
+      padding-top: 28px;
+    }
   }
   &__description {
     font-size: 14px;
     line-height: 140%;
     padding-top: 12px;
+    @include wider-than-tablet {
+      font-size: 16px;
+      line-height: 150%;
+    }
   }
   &__btn {
     margin-top: 19px;
     margin-bottom: 30px;
+    @include wider-than-tablet {
+      margin-top: 35px;
+    }
   }
   &__image {
-    &::before {
-      content: 'gif will be here...';
+    height: 190px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    @include tablet-only {
+      height: 250px;
+    }
+    @include wider-than-tablet {
+      flex-basis: 319px;
+      flex-shrink: 0;
+      height: auto;
+      flex-grow: 0;
     }
   }
 }

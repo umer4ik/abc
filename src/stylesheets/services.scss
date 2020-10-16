@@ -1,17 +1,32 @@
 .services {
   background: linear-gradient(to bottom, #E7F1F2 150px, #fff);
   padding-top: 130px;
+  @include wider-than-tablet {
+    padding-top: 295px;
+  }
   &__container {
     padding-left: 20px;
     padding-right: 20px;
+    @include wider-than-tablet {
+      @include section;
+    }
   }
   &__title {
     padding-top: 49px;
     font-size: 22px;
     line-height: 90%;
     letter-spacing: -0.01em;
+    @include wider-than-tablet {
+      font-size: 30px;
+      line-height: 110%;
+    }
   }
   &__list {
     padding-top: 22px;
+    @include wider-than-tablet {
+      padding-top: 50px;
+      display: flex;
+      align-items: center;
+    }
   }
 }

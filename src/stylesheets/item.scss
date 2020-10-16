@@ -8,12 +8,28 @@
   display: flex;
   align-items: center;
   position: relative;
+  @include wider-than-tablet {
+    padding-bottom: 23px;
+    padding-top: 34px;
+    letter-spacing: normal;
+    line-height: 1;
+  }
   &__title {
     margin-right: auto;
+    @include wider-than-tablet {
+      font-size: 50px;
+      line-height: 85%;
+      letter-spacing: -0.02em;
+    }
   }
   &__number {
     margin-left: auto;
     flex-basis: 45px;
     flex-shrink: 0;
+    @include wider-than-tablet {
+      font-size: 30px;
+      line-height: 90%;
+      letter-spacing: -0.02em;
+    }
   }
 }
