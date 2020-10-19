@@ -15,7 +15,7 @@ const getNextSectionIndex = (scrollTop) => {
   return sections.length - 1;
 };
 
-export default function init() {
+export default function init(onlyTrigger = false) {
   const railWidth = rail.getBoundingClientRect().height;
   const windowTotalHeight = document.body.scrollHeight;
   const windowHeight = window.innerHeight;
@@ -28,13 +28,17 @@ export default function init() {
   };
   setTriggerPosition(window.scrollY);
 
-  for (let i = 0; i < sections.length; i += 1) {
-    const section = sections[i];
-    list.innerHTML += `<div>${section.getAttribute('data-section')}</div>`;
+  if (!onlyTrigger) {
+    for (let i = 0; i < sections.length; i += 1) {
+      const section = sections[i];
+      list.innerHTML += `<div>${section.getAttribute('data-section')}</div>`;
+    }
   }
   window.addEventListener('scroll', () => {
-    const sectionIndex = getNextSectionIndex(window.scrollY);
     setTriggerPosition(window.scrollY);
-    list.style.transform = `translateY(${-16 * sectionIndex}px)`;
+    if (!onlyTrigger) {
+      const sectionIndex = getNextSectionIndex(window.scrollY);
+      list.style.transform = `translateY(${-16 * sectionIndex}px)`;
+    }
   });
 }

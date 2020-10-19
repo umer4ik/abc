@@ -6,6 +6,7 @@
 @import "main.scss";
 // libraries
 @import "~tiny-slider/dist/tiny-slider.css";
+@import "~jquery-modal/jquery.modal.min.css";
 @import "menu-hover.scss";
 @import "cursor-drag.scss";
 
@@ -31,3 +32,6 @@
 @import "to-top-faw.scss";
 @import "eye.scss";
 @import "projects-carousel.scss";
+
+// prjects page
+@import "projects-page.scss"

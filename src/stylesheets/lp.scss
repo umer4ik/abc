@@ -3,7 +3,7 @@
   @include wider-than-tablet {
     display: flex;
     position: fixed;
-    z-index: 10;
+    z-index: 20;
     padding: 26px 50px;
     height: 100vh;
     flex-direction: column;
@@ -76,5 +76,8 @@
   &__scroll-wrap {
     position: relative;
     transform: translateX(-156px);
+  }
+  &__arrow {
+    transform: rotate(90deg) translateX(1px);
   }
 }

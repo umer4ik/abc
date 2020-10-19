@@ -63,4 +63,11 @@
       text-decoration: underline;
     }
   }
+  .projects-page + & {
+    background: linear-gradient(to bottom, #E7F1F2, #fff 100px, #fff);
+    padding-top: 130px;
+    @include wider-than-tablet {
+      background: linear-gradient(to bottom, #E7F1F2, #fff);
+    }
+  }
 }
