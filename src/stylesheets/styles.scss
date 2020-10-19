@@ -9,6 +9,7 @@
 @import "~jquery-modal/jquery.modal.min.css";
 @import "menu-hover.scss";
 @import "cursor-drag.scss";
+@import "flip.scss";
 
 // common things
 @import "btn.scss";
@@ -33,5 +34,10 @@
 @import "eye.scss";
 @import "projects-carousel.scss";
 
-// prjects page
-@import "projects-page.scss"
+// projects page
+@import "projects-page.scss";
+
+// about page
+@import "about.scss";
+@import "team.scss";
+@import "team-intro.scss";

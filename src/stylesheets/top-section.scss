@@ -1,3 +1,6 @@
 .top-section {
   background: #E7F1F2;
+  [data-page="about"] & {
+    background-color: #f6f0e9;
+  }
 }

@@ -5,6 +5,7 @@ import initMagneticChart from './magnetic';
 import initScrollSection from './scroll-section';
 import initMenu from './image-hover';
 import initCarousel from './carousel';
+import initFlipText from './abc-text-flip';
 
 const run = (...functions) => functions.forEach((item) => {
   const { params = [] } = item;
@@ -36,6 +37,14 @@ const pageFunctionsMap = {
       func: initScrollSection,
       params: [true],
     },
+  ],
+  about: [
+    initEye,
+    {
+      func: initScrollSection,
+      params: [true],
+    },
+    initFlipText,
   ],
 };
 

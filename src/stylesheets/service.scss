@@ -1,7 +1,16 @@
 .service {
   border-bottom: 1px solid rgba($text-color, .2);
-  margin-bottom: 26px;
   padding-bottom: 31px;
+  @include phone {
+    &:not(:last-child) {
+      margin-bottom: 26px;
+    }
+  }
+  @include tablet {
+    &:not(:last-child) {
+      margin-bottom: 26px;
+    }
+  }
   @include wider-than-tablet {
     margin-bottom: 0;
     padding-bottom: 0;

@@ -1,0 +1,79 @@
+.flip-container {
+  position: relative;
+  height: 280px;
+  background-color: #F4E4D2;
+}
+.flip-wrapper {
+  font-size: 170px;
+  color: #fff;
+  position: absolute;
+  font-weight: 700;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.flip-template {
+  color: white;
+  opacity: 0;
+}
+
+.flip-slice {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  animation: scale 4s infinite;
+  transition: all .1s;
+  transform-origin: bottom right;
+}
+
+.flip-slice.opposite {
+  right: 0;
+  left: auto;
+  animation: scale-opposite 4s infinite;
+  transition: all .1s;
+}
+
+.flip-slice.opposite .flip-mask {
+  right: 0;
+  left: auto;
+}
+
+.flip-mask {
+  position: absolute;
+  overflow: hidden;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  25% {
+    transform: scale3d(0, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes scale-opposite {
+  0% {
+    transform: scale3d(0, 1, 1);
+  }
+
+  25% {
+    transform: scale3d(1, 1, 0);
+  }
+
+  50% {
+    transform: scale3d(0, 1, 1);
+  }
+
+  100% {
+    transform: scale3d(0, 1, 1);
+  }
+}

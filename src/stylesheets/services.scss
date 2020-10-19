@@ -23,6 +23,7 @@
   }
   &__list {
     padding-top: 22px;
+    overflow: hidden;
     @include wider-than-tablet {
       padding-top: 50px;
       display: flex;
