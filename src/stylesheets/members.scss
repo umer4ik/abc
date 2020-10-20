@@ -1,0 +1,24 @@
+.members {
+  padding-top: 43px;
+  @include wider-than-tablet {
+    padding-top: 58px;
+  }
+  &__title {
+    font-size: 22px;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    @include wider-than-tablet {
+      font-size: 30px;
+      line-height: 110%;
+    }
+  }
+  &__list {
+    padding-top: 15px;
+    @include wider-than-phone {
+      display: flex;
+      margin-left: -15px;
+      margin-right: -15px;
+      padding-top: 43px;
+    }
+  }
+}

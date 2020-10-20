@@ -1,6 +1,8 @@
 const rail = document.querySelector('.lp__scroll-rail');
 const trigger = document.querySelector('.lp__scroll-trigger');
-const list = document.querySelector('.lp__sections-list');
+const title = document.querySelector('.lp__title');
+const list = document.createElement('div');
+list.className = 'lp__sections-list';
 const sections = document.querySelectorAll('[data-section]');
 
 const getNextSectionIndex = (scrollTop) => {
@@ -33,6 +35,8 @@ export default function init(onlyTrigger = false) {
       const section = sections[i];
       list.innerHTML += `<div>${section.getAttribute('data-section')}</div>`;
     }
+    title.innerHTML = '';
+    title.appendChild(list);
   }
   window.addEventListener('scroll', () => {
     setTriggerPosition(window.scrollY);

@@ -8,18 +8,30 @@
   display: flex;
   align-items: center;
   position: relative;
+  transition: border-bottom-color .35s $easing;
   @include wider-than-tablet {
     padding-bottom: 23px;
     padding-top: 34px;
     letter-spacing: normal;
     line-height: 1;
   }
+  &:hover {
+    @include wider-than-tablet {
+      border-bottom-color: rgba($text-color, .4);
+    }
+  }
   &__title {
     margin-right: auto;
+    transition: opacity .35s $easing;
     @include wider-than-tablet {
       font-size: 50px;
       line-height: 85%;
       letter-spacing: -0.02em;
+    }
+    .item:hover & {
+      @include wider-than-tablet {
+        opacity: 0.4;
+      }
     }
   }
   &__number {
@@ -30,6 +42,11 @@
       font-size: 30px;
       line-height: 90%;
       letter-spacing: -0.02em;
+    }
+    .item:hover & {
+      @include wider-than-tablet {
+        opacity: 0.4;
+      }
     }
   }
 }

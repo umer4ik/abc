@@ -1,8 +1,7 @@
-.services {
-  background: linear-gradient(to bottom, #E7F1F2 150px, #fff);
-  padding-top: 130px;
+.abc-board {
+  padding-top: 70px;
   @include wider-than-tablet {
-    padding-top: 295px;
+    padding-top: 140px;
   }
   &__container {
     padding-left: 20px;
@@ -12,7 +11,6 @@
     }
   }
   &__title {
-    padding-top: 49px;
     font-size: 22px;
     line-height: 90%;
     letter-spacing: -0.01em;
@@ -21,12 +19,7 @@
       line-height: 110%;
     }
   }
-  &__list {
-    padding-top: 22px;
-    @include wider-than-tablet {
-      padding-top: 50px;
-      display: flex;
-      align-items: center;
-    }
+  &__members {
+    padding-top: 17px;
   }
 }

@@ -6,6 +6,23 @@ import initScrollSection from './scroll-section';
 import initMenu from './image-hover';
 import initCarousel from './carousel';
 import initFlipText from './abc-text-flip';
+import initLoader from './loader';
+
+const projectsImagesMap = {};
+const abcBoardMembersImagesMap = {};
+
+function importAll(r, map) {
+  r.keys().forEach((key) => {
+    const m = map;
+    m[key] = r(key);
+  });
+}
+
+importAll(require.context('../images/projects/', true, /\.png$/), projectsImagesMap);
+importAll(require.context('../images/abc-board-members/', true, /\.png$/), abcBoardMembersImagesMap);
+
+const projectImages = Object.entries(projectsImagesMap);
+const abcBoardMembersImages = Object.entries(abcBoardMembersImagesMap);
 
 const run = (...functions) => functions.forEach((item) => {
   const { params = [] } = item;
@@ -28,7 +45,10 @@ const pageFunctionsMap = {
       func: initScrollSection,
       delay: 100,
     },
-    initMenu,
+    {
+      func: initMenu,
+      params: [projectImages],
+    },
     initCarousel,
   ],
   projects: [
@@ -45,9 +65,13 @@ const pageFunctionsMap = {
       params: [true],
     },
     initFlipText,
+    {
+      func: initMenu,
+      params: [abcBoardMembersImages],
+    },
   ],
 };
 
-setTimeout(() => {
+initLoader().then(() => {
   run(...pageFunctionsMap[PAGE]);
-}, 1000);
+});

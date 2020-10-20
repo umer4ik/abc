@@ -1,7 +1,7 @@
 import MenuItem from './menuItem';
 
 export default class Menu {
-  constructor(el) {
+  constructor(el, images) {
     // el is the menu element (<nav>)
     this.DOM = { el };
     // the menu item elements (<a>)
@@ -24,7 +24,7 @@ export default class Menu {
     // array of MenuItem instances
     this.menuItems = [];
     // initialize the MenuItems
-    [...this.DOM.menuItems].forEach((item, pos) => this.menuItems.push(new MenuItem(item, pos, this.animatableProperties)));
+    [...this.DOM.menuItems].forEach((item, pos) => this.menuItems.push(new MenuItem(item, pos, this.animatableProperties, images)));
     // show the menu items (initial animation where each menu item gets revealed)
     // this.showMenuItems();
   }

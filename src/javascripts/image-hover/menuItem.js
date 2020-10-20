@@ -3,16 +3,6 @@ import {
   map, lerp, clamp, getMousePos,
 } from '../magnetic/utils';
 
-const imagesMap = {};
-
-function importAll(r) {
-  r.keys().forEach((key) => { imagesMap[key] = r(key); });
-}
-
-importAll(require.context('../../images/projects/', true, /\.png$/));
-
-const images = Object.entries(imagesMap);
-
 // track the mouse position
 let mousepos = { x: 0, y: 0 };
 // cache the mouse position
@@ -26,9 +16,10 @@ window.addEventListener('mousemove', (ev) => {
 });
 
 export default class MenuItem {
-  constructor(el, inMenuPosition, animatableProperties) {
+  constructor(el, inMenuPosition, animatableProperties, images) {
     // el is the <a> with class "menu__item"
     this.DOM = { el };
+    this.images = images;
     // position in the Menu
     this.inMenuPosition = inMenuPosition;
     // menu item properties that will animate as we move the mouse around the menu
@@ -60,7 +51,7 @@ export default class MenuItem {
     this.DOM.revealInner.className = 'hover-reveal__inner';
     this.DOM.revealImage = document.createElement('div');
     this.DOM.revealImage.className = 'hover-reveal__img';
-    this.DOM.revealImage.style.backgroundImage = `url(${images[this.inMenuPosition][1]})`;
+    this.DOM.revealImage.style.backgroundImage = `url(${this.images[this.inMenuPosition][1]})`;
 
     this.DOM.revealInner.appendChild(this.DOM.revealImage);
     this.DOM.reveal.appendChild(this.DOM.revealInner);
@@ -113,7 +104,7 @@ export default class MenuItem {
         this.DOM.revealInner.style.opacity = 1;
         this.DOM.reveal.style.opacity = 1;
         // set a high z-index value so image appears on top of other elements
-        gsap.set(this.DOM.el, { zIndex: images.length });
+        gsap.set(this.DOM.el, { zIndex: this.images.length });
       },
     })
     // animate the image wrap

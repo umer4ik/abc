@@ -1,27 +1,64 @@
 .about {
   padding-top: 30px;
-  background: linear-gradient(to bottom, #f6f0e9, #FCF3DB);
+  @include wider-than-tablet {
+    padding-top: 230px;
+  }
   &__container {
     padding-left: 20px;
     padding-right: 20px;
+    @include wider-than-tablet {
+      @include section;
+    }
+  }
+  &__row {
+    @include wider-than-tablet {
+      display: flex;
+    }
+  }
+  &__col {
+    &--title {
+      @include wider-than-tablet {
+        flex-basis: 340px;
+        margin-right: 40px;
+        flex-shrink: 0;
+      }
+    }
+    &--description {
+      @include wider-than-tablet {
+        flex-grow: 1;
+      }
+    }
   }
   &__title {
     font-size: 26px;
     line-height: 90%;
     letter-spacing: -0.01em;
     padding-bottom: 27px;
+    @include wider-than-tablet {
+      font-size: 50px;
+      line-height: 85%;
+      letter-spacing: -0.02em;
+    }
   }
   &__subtitle {
     font-size: 22px;
     line-height: 90%;
     letter-spacing: -0.01em;
     padding-bottom: 13px;
+    @include wider-than-tablet {
+      font-size: 30px;
+      line-height: 110%;
+    }
   }
   &__description {
     font-size: 14px;
     line-height: 140%;
+    @include wider-than-tablet {
+      font-size: 20px;
+      line-height: 130%;
+    }
     p {
-      padding-bottom: 1em;
+      padding-bottom: .3em;
     }
   }
   &__important {
@@ -29,8 +66,23 @@
     line-height: 100%;
     letter-spacing: -0.02em;
     padding-top: 46px;
+    @include wider-than-tablet {
+      font-size: 80px;
+      line-height: 100%;
+      letter-spacing: -0.02em;
+      padding-top: 0;
+      margin-top: -50px;
+      position: relative;
+      z-index: 2;
+    }
   }
   &__btn {
     margin-top: 21px;
+  }
+  br {
+    display: none;
+    @include wider-than-tablet {
+      display: inline;
+    }
   }
 }
