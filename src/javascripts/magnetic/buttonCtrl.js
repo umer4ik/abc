@@ -85,9 +85,9 @@ export default class ButtonCtrl extends EventEmitter {
       this.renderedStyles[key].previous = lerp(this.renderedStyles[key].previous, this.renderedStyles[key].current, this.renderedStyles[key].amt);
     }
 
-    this.DOM.el.style.transform = `translate3d(${this.renderedStyles.tx.previous}px, ${this.renderedStyles.ty.previous}px, 0)`;
+    this.DOM.el.style.transform = `translate3d(${this.renderedStyles.tx.previous}px, ${this.renderedStyles.ty.previous}px, 0) scale(${this.renderedStyles.scale.previous})`;
     // this.DOM.text.style.transform = `translate3d(${-this.renderedStyles.tx.previous * 0.2}px, ${-this.renderedStyles.ty.previous * 0.2}px, 0)`;
-    this.DOM.deco.style.transform = `scale(${this.renderedStyles.scale.previous})`;
+    this.DOM.deco.style.transform = `translate3d(${-this.renderedStyles.tx.previous}px, ${-this.renderedStyles.ty.previous}px, 0)`;
 
     requestAnimationFrame(() => this.render());
   }
