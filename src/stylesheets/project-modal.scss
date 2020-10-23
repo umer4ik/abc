@@ -1,0 +1,71 @@
+.project-modal {
+  &__number {
+    font-size: 14px;
+    line-height: 140%;
+    padding-bottom: 22px;
+    @include wider-than-tablet {
+      font-size: 16px;
+      line-height: 150%;
+      padding-bottom: 18px;
+    }
+  }
+  &__title {
+    font-size: 26px;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    padding-bottom: 10px;
+    @include wider-than-tablet {
+      font-size: 50px;
+      line-height: 85%;
+      letter-spacing: -0.02em;
+      padding-bottom: 13px;
+    }
+  }
+  &__description {
+    font-size: 14px;
+    line-height: 140%;
+    padding-bottom: 19px;
+    @include wider-than-tablet {
+      width: 350px;
+      font-size: 16px;
+      line-height: 150%;
+      padding-bottom: 33px;
+    }
+  }
+  &__image-wrapper {
+    padding-bottom: 32px;
+    @include wider-than-tablet {
+      padding-bottom: 53px;
+    }
+  }
+  &__image {
+    width: 100%;
+    vertical-align: middle;
+  }
+  &__row {
+    border-top: 2px solid $text-color;
+    padding-bottom: 36px;
+    padding-top: 11px;
+    @include wider-than-tablet {
+      display: flex;
+      padding-bottom: 65px;
+      padding-top: 14px;
+    }
+  }
+  &__col {
+    font-size: 14px;
+    line-height: 140%;
+    &--title {
+      padding-bottom: 15px;
+      @include wider-than-tablet {
+        flex-basis: 154px;
+        flex-shrink: 0;
+      }
+    }
+    &--description {
+      @include wider-than-tablet {
+        flex-grow: 1;
+      }
+    }
+  }
+}

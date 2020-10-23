@@ -15,10 +15,10 @@
     vertical-align: middle;
   }
   &__btn {
+    right: -2px;
     position: absolute;
-    right: 30px;
-    bottom: 50px;
-    background-color: #fff;
+    top: 0;
+    z-index: 2;
   }
   &__name {
     font-size: 22px;
@@ -36,5 +36,63 @@
     font-size: 14px;
     line-height: 130%;
     opacity: 0.5;
+  }
+  &__info {
+    display: none;
+    @include wider-than-tablet {
+      display: block;
+      position: absolute;
+      width: 380px;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1;
+      transform: translateY(calc(100% - 60px));
+      transition: transform .45s $easing;
+    }
+    &.open {
+      transform: translateY(0);
+      .member__btn {
+        @include wider-than-tablet {
+          top: 0;
+          svg {
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+    &--visible {
+      display: block;
+    }
+  }
+  &__description {
+    font-size: 14px;
+    line-height: 140%;
+    padding-top: 20px;
+    @include wider-than-tablet {
+      font-size: 16px;
+      line-height: 150%;
+      padding-top: 26px;
+    }
+  }
+  &__info-inner {
+    opacity: 0;
+    background-color: #fff;
+    padding: 20px 0 0;
+    @include wider-than-tablet {
+      padding: 30px 60px 52px;
+      transition: opacity .45s $easing;
+    }
+    .open & {
+      opacity: 1;
+    }
+  }
+  &__mobile-btn {
+    display: flex;
+    right: 30px;
+    bottom: 50px;
+    position: absolute;
+    @include wider-than-tablet {
+      display: none;
+    }
   }
 }

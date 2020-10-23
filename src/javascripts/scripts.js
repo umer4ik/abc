@@ -7,6 +7,7 @@ import initMenu from './image-hover';
 import initCarousel from './carousel';
 import initFlipText from './abc-text-flip';
 import initLoader from './loader';
+import initModals from './modals';
 
 const projectsImagesMap = {};
 const abcBoardMembersImagesMap = {};
@@ -50,6 +51,7 @@ const pageFunctionsMap = {
       params: [projectImages],
     },
     initCarousel,
+    initModals,
   ],
   projects: [
     initEye,
@@ -57,6 +59,7 @@ const pageFunctionsMap = {
       func: initScrollSection,
       params: [true],
     },
+    initModals,
   ],
   about: [
     initEye,
@@ -69,6 +72,7 @@ const pageFunctionsMap = {
       func: initMenu,
       params: [abcBoardMembersImages],
     },
+    initModals,
   ],
 };
 
