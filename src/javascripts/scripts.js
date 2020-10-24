@@ -42,7 +42,7 @@ const PAGE = document.body.getAttribute('data-page');
 
 const pageFunctionsMap = {
   index: [
-    initEye,
+    // initEye,
     initMagneticChart,
     {
       func: initScrollSection,
@@ -58,7 +58,7 @@ const pageFunctionsMap = {
     initCursor,
   ],
   projects: [
-    initEye,
+    // initEye,
     {
       func: initScrollSection,
       params: [true],
@@ -68,7 +68,7 @@ const pageFunctionsMap = {
     initCursor,
   ],
   about: [
-    initEye,
+    // initEye,
     {
       func: initScrollSection,
       params: [true],
@@ -83,6 +83,10 @@ const pageFunctionsMap = {
     initCursor,
   ],
 };
+
+setTimeout(() => {
+  initEye();
+});
 
 initLoader().then(() => {
   run(...pageFunctionsMap[PAGE]);

@@ -28,13 +28,14 @@
       height: 364px;
       top: -110px;
       right: 210px;
+      opacity: 0;
     }
     svg {
       display: none;
       @include wider-than-tablet {
         display: block;
-        margin-left: -697px;
-        margin-top: 41px;
+        margin-left: -710px;
+        margin-top: 16px;
       }
     }
   }
@@ -44,6 +45,10 @@
     line-height: 0.9;
     @include wider-than-tablet {
       font-size: 130px;
+      line-height: 1;
+      .split-line {
+        margin-bottom: -0.15em;
+      }
     }
   }
   &__front-layer {

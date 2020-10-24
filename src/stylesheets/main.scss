@@ -26,7 +26,12 @@ button:focus {
 body {
   background-color: #E7F1F2;
   transition: background-color 1s $easing;
+  cursor: url('../images/cursor.svg') 5 5, auto;
   &[data-page="about"] {
     background-color: #F6F0E9;
   }
+}
+button,
+a {
+  cursor: url('../images/cursor.svg') 5 5, auto;
 }
