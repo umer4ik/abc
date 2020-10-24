@@ -8,6 +8,8 @@ import initCarousel from './carousel';
 import initFlipText from './abc-text-flip';
 import initLoader from './loader';
 import initModals from './modals';
+import initScroll from './smooth-scroll';
+import initCursor from './cursor';
 
 const projectsImagesMap = {};
 const abcBoardMembersImagesMap = {};
@@ -52,6 +54,8 @@ const pageFunctionsMap = {
     },
     initCarousel,
     initModals,
+    initScroll,
+    initCursor,
   ],
   projects: [
     initEye,
@@ -60,6 +64,8 @@ const pageFunctionsMap = {
       params: [true],
     },
     initModals,
+    initScroll,
+    initCursor,
   ],
   about: [
     initEye,
@@ -73,6 +79,8 @@ const pageFunctionsMap = {
       params: [abcBoardMembersImages],
     },
     initModals,
+    initScroll,
+    initCursor,
   ],
 };
 

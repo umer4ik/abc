@@ -62,6 +62,12 @@ export default class ButtonCtrl extends EventEmitter {
   }
 
   render() {
+    if (window.innerWidth < 1024) {
+      requestAnimationFrame(() => this.render());
+      this.DOM.el.style.transform = 'none';
+      this.DOM.deco.style.transform = 'none';
+      return;
+    }
     // calculate the distance from the mouse to the center of the button
     const distanceMouseButton = distance(mousepos.x, mousepos.y, this.rect.left + this.rect.width / 2, this.rect.top + this.rect.height / 2);
     // new values for the translations and scale

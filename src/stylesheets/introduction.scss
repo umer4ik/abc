@@ -17,16 +17,22 @@
     top: 0;
     right: 17px;
     border-radius: 50%;
-    background-color: #DAE9EB;
+    // background-color: #DAE9EB;
     overflow: hidden;
+    background: url('../images//main-chart.svg') no-repeat #DAE9EB center center;
+    background-size: cover;
     @include wider-than-tablet {
+      background: none;
+      background-color: #DAE9EB;
       width: 364px;
       height: 364px;
       top: -110px;
       right: 210px;
     }
     svg {
+      display: none;
       @include wider-than-tablet {
+        display: block;
         margin-left: -697px;
         margin-top: 41px;
       }

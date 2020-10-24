@@ -1,10 +1,82 @@
 .cursor-drag {
   display: none;
+  width: 80px;
+  height: 80px;
+  &__inner {
+    transform-origin: 50% 50%;
+    width: 100%;
+    height: 100%;
+    margin-left: -40px;
+    margin-top: -40px;
+  }
+  svg {
+    position: relative;
+    z-index: 2;
+  }
   @media (any-pointer: fine) {
-    position: fixed;
+    @include wider-than-tablet {
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: block;
+      pointer-events: none;
+      z-index: 40;
+    }
+  }
+  circle {
+    fill: none;
+    stroke: $text-color;
+    stroke-width: 1px;
+    transform: scale(.6);
+    transform-origin: 50% 50%;
+    transition: all .8s $easing;
+  }
+  &__circle-copy {
+    position: absolute;
+    z-index: 1;
+    background: linear-gradient(to left, rgba(#f00, .1), rgba(#00f, .1), rgba(#0f0, .1), rgba(#000, .1), rgba(#fff, .1), rgba(#ff0, .1), rgba(#0ff, .1));
+    animation: bg-animation 20s ease infinite;
+    background-size: 700% 700%;
+    width: 80px;
+    height: 80px;
     top: 0;
     left: 0;
-    display: block;
-    pointer-events: none;
+    margin-top: -40px;
+    margin-left: -40px;
+    transform: scale(.6);
+    transform-origin: 50% 50%;
+    transition: all .8s $easing;
+    opacity: 0;
+    border-radius: 50%;
   }
+  ellipse {
+    opacity: 0;
+    transition: all .8s $easing;
+  }
+  &.hover-carousel {
+    circle {
+      transform: scale(1);
+      fill: $text-color;
+    }
+    ellipse {
+      opacity: 1;
+    }
+  }
+  &.hover-link {
+    circle {
+      transform: scale(1);
+      fill: rgba(#DAE9EB, .3);
+      stroke: rgba($text-color, .3);
+    }
+    .cursor-drag__circle-copy {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes bg-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }

@@ -1,7 +1,6 @@
 /* eslint-disable no-new */
 import { tns } from 'tiny-slider/src/tiny-slider';
 import $ from 'jquery';
-import Cursor from './magnetic/cursor';
 
 const initCarousel = () => {
   const projectsCarousel = tns({
@@ -34,7 +33,6 @@ const initCarousel = () => {
   container.addEventListener('mouseup', () => {
     container.classList.remove('dragging');
   });
-  new Cursor(document.querySelector('.cursor-drag'), container);
 };
 
 export default initCarousel;

@@ -3,7 +3,9 @@
   &.dragging {
     cursor: grabbing;
   }
-  .tns-ovh {
+}
+.tns-ovh {
+  @include wider-than-tablet {
     overflow: visible;
   }
 }
