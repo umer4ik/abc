@@ -4,6 +4,7 @@ const title = document.querySelector('.lp__title');
 const list = document.createElement('div');
 list.className = 'lp__sections-list';
 const sections = document.querySelectorAll('[data-section]');
+const colorSections = document.querySelectorAll('[data-section-color]');
 
 const getNextSectionIndex = (scrollTop) => {
   for (let i = 0; i < sections.length; i += 1) {
@@ -15,6 +16,18 @@ const getNextSectionIndex = (scrollTop) => {
     }
   }
   return sections.length - 1;
+};
+
+const getColorSection = (scrollTop) => {
+  for (let i = 0; i < colorSections.length; i += 1) {
+    const section = colorSections[i];
+    const { offsetTop } = section;
+    // console.log(scrollTop, offsetTop);
+    if (offsetTop > scrollTop) {
+      return i - 1;
+    }
+  }
+  return colorSections.length - 1;
 };
 
 export default function init(onlyTrigger = false) {
@@ -40,9 +53,11 @@ export default function init(onlyTrigger = false) {
   }
   window.addEventListener('scroll', () => {
     setTriggerPosition(window.scrollY);
+    const sectionIndex = getNextSectionIndex(window.scrollY);
     if (!onlyTrigger) {
-      const sectionIndex = getNextSectionIndex(window.scrollY);
       list.style.transform = `translateY(${-16 * sectionIndex}px)`;
     }
+    const colorSectionIndex = getColorSection(window.scrollY + window.innerHeight / 2);
+    document.body.style.backgroundColor = colorSections[colorSectionIndex].getAttribute('data-section-color');
   });
 }

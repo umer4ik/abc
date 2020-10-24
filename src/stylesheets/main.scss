@@ -25,4 +25,8 @@ button:focus {
 }
 body {
   background-color: #E7F1F2;
+  transition: background-color 1s $easing;
+  &[data-page="about"] {
+    background-color: #F6F0E9;
+  }
 }
