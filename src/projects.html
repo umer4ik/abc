@@ -4,8 +4,92 @@
   <meta charset="utf-8">
   <title>Projects</title>
   <meta name="description" content="Projects" />
+  <style>
+    .loader {
+      position: fixed;
+      width: 2400px;
+      height: 2400px;
+      top: 50%;
+      left: 50%;
+      margin-top: -1200px;
+      margin-left: -1200px;
+      z-index: 15;
+      background-color: #dae9eb;
+      overflow: hidden;
+    }
+    @media screen and (max-width: 1024px) {
+      .loader { display: none; }
+    }
+
+    .loader__frame {
+      height: 400px;
+      margin-top: -200px;
+      margin-left: -1200px;
+      padding-left: calc(1200px - 50vw);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      overflow: hidden;
+      width: 0;
+    }
+
+    .loader__frame img {
+      width: 100vw;
+      vertical-align: middle;
+    }
+
+    .loader__loading {
+      position: fixed;
+      bottom: 30px;
+      height: 68px;
+      left: 260px;
+      width: 80%;
+    }
+
+    .loader__progress {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 0;
+      height: 100%;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    body.ready {
+      overflow: auto;
+    }
+
+    .ready .loader {
+      pointer-events: none;
+    }
+
+  </style>
 </head>
 <body data-page="projects">
+  <div class="loader">
+    <div class="loader__frame">
+      <img src="images/loader.svg" alt="">
+    </div>
+    <div class="loader__frame">
+      <img src="images/loader2.svg" alt="">
+    </div>
+    <div class="loader__frame">
+      <img src="images/loader3.svg" alt="">
+    </div>
+    <div class="loader__loading">
+      <div class="loader__progress">
+        <div class="loader__progress-title">
+          Loading...
+        </div>
+        <div class="loader__progress-percent">
+          000
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="lp">
     <a href="/" class="lp__logo" data-cursor-class="hover-link">
       <img src="images/logoheader.png" class="lp__logo-img" alt="ABC">

@@ -2,6 +2,7 @@ const rail = document.querySelector('.lp__scroll-rail');
 const trigger = document.querySelector('.lp__scroll-trigger');
 const title = document.querySelector('.lp__title');
 const list = document.createElement('div');
+const menuLists = document.querySelectorAll('.list');
 list.className = 'lp__sections-list';
 const sections = document.querySelectorAll('[data-section]');
 const colorSections = document.querySelectorAll('[data-section-color]');
@@ -58,6 +59,11 @@ export default function init(onlyTrigger = false) {
       list.style.transform = `translateY(${-16 * sectionIndex}px)`;
     }
     const colorSectionIndex = getColorSection(window.scrollY + window.innerHeight / 2);
-    document.body.style.backgroundColor = colorSections[colorSectionIndex].getAttribute('data-section-color');
+    const color = colorSections[colorSectionIndex].getAttribute('data-section-color');
+    document.body.style.backgroundColor = color;
+    menuLists.forEach((el) => {
+      const l = el;
+      l.style.backgroundColor = color;
+    });
   });
 }

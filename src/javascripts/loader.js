@@ -16,16 +16,19 @@ const layout = () => {
 const initLoader = () => new Promise((resolve) => {
   const loader = document.querySelector('.loader');
   const finish = () => {
-    document.body.classList.add('ready');
-    resolve();
+    setTimeout(() => {
+      document.body.classList.add('ready');
+      return resolve();
+    });
   };
-  if (!loader) {
+  if (!loader || window.innerWidth <= 1024) {
     finish();
+    return;
   }
   layout();
   const titleLines = document.querySelectorAll('.introduction__title .split-line__hidden-text');
   const chart = document.querySelector('.introduction__chart');
-  let { top: finalY, left: finalX } = chart.getBoundingClientRect();
+  let finalX; let finalY;
   const frames = loader.querySelectorAll('.loader__frame');
   const lines = loader.querySelectorAll('img');
   const progress = loader.querySelector('.loader__progress');
@@ -62,18 +65,37 @@ const initLoader = () => new Promise((resolve) => {
       ease: Power0.easeNone,
     })
     .then(() => {
-      ({ top: finalY, left: finalX } = chart.getBoundingClientRect());
-      return gsap.timeline().to(loader, {
-        top: finalY,
-        left: finalX,
-        marginTop: 0,
-        marginLeft: 0,
-        width: 364,
-        height: 364,
-        borderRadius: '50%',
-        duration: 1,
-        ease: Power0.easeNone,
-      }, '-=.5')
+      let loaderConfig = {};
+      if (chart) {
+        ({ top: finalY, left: finalX } = chart.getBoundingClientRect());
+        loaderConfig = {
+          top: finalY,
+          left: finalX,
+          marginTop: 0,
+          marginLeft: 0,
+          width: 364,
+          height: 364,
+          borderRadius: '50%',
+          duration: 1,
+          ease: Power0.easeNone,
+        };
+      } else {
+        loaderConfig = {
+          top: '50%',
+          left: '50%',
+          marginTop: 0,
+          marginLeft: 0,
+          width: 0,
+          height: 0,
+          borderRadius: '50%',
+          duration: 1,
+          ease: Power0.easeNone,
+        };
+      }
+
+      return gsap
+        .timeline()
+        .to(loader, loaderConfig, '-=.5')
         .to(frames, {
           height: 364,
           marginTop: 0,

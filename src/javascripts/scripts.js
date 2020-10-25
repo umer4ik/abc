@@ -10,6 +10,8 @@ import initLoader from './loader';
 import initModals from './modals';
 import initScroll from './smooth-scroll';
 import initCursor from './cursor';
+import initFabToTop from './fab-to-top';
+import { PAGE } from './constants';
 
 const projectsImagesMap = {};
 const abcBoardMembersImagesMap = {};
@@ -37,9 +39,6 @@ const run = (...functions) => functions.forEach((item) => {
     item.func(...params);
   }
 });
-
-const PAGE = document.body.getAttribute('data-page');
-
 const pageFunctionsMap = {
   index: [
     // initEye,
@@ -86,6 +85,7 @@ const pageFunctionsMap = {
 
 setTimeout(() => {
   initEye();
+  initFabToTop();
 });
 
 initLoader().then(() => {

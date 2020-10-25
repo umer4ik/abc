@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Static Site Boilerplate</title>
   <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     .loader {
       position: fixed;
@@ -17,6 +18,9 @@
       z-index: 15;
       background-color: #dae9eb;
       overflow: hidden;
+    }
+    @media screen and (max-width: 1024px) {
+      .loader { display: none; }
     }
 
     .loader__frame {
@@ -270,6 +274,9 @@
             <div class="partner item">
               <div class="partner__title item__title">DT Global</div>
               <div class="partner__number item__number">(06)</div>
+            </div>
+            <div class="list__place-for-image">
+              <div class="list__rotate-image-holder"></div>
             </div>
           </div>
           <button class="btn work__btn">

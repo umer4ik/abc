@@ -16,9 +16,10 @@ window.addEventListener('mousemove', (ev) => {
 });
 
 export default class MenuItem {
-  constructor(el, inMenuPosition, animatableProperties, images) {
+  constructor(el, inMenuPosition, animatableProperties, images, placeForImage) {
     // el is the <a> with class "menu__item"
     this.DOM = { el };
+    this.DOM.placeForImage = placeForImage;
     this.images = images;
     // position in the Menu
     this.inMenuPosition = inMenuPosition;
@@ -73,6 +74,9 @@ export default class MenuItem {
   // bind some events
   initEvents() {
     this.mouseenterFn = () => {
+      if (window.innerWidth <= 1024) {
+        return;
+      }
       // show the image element
       this.showImage();
       this.firstRAFCycle = true;
@@ -82,14 +86,24 @@ export default class MenuItem {
       this.loopRender();
     };
     this.mouseleaveFn = () => {
+      if (window.innerWidth <= 1024) {
+        return;
+      }
       // stop the render loop animation (rAF)
       this.stopRendering();
       // hide the image element
       this.hideImage();
     };
 
+    this.onClick = () => {
+      if (window.innerWidth <= 1024) {
+        this.pushImageToPlace();
+      }
+    };
+
     this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
     this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
+    this.DOM.el.addEventListener('click', this.onClick);
   }
 
   // show the image element
@@ -119,6 +133,13 @@ export default class MenuItem {
         startAt: { scale: 1.4 },
         scale: 1,
       }, 0);
+  }
+
+  pushImageToPlace() {
+    const img = document.createElement('img');
+    [, img.src] = this.images[this.inMenuPosition];
+    this.DOM.placeForImage.innerHTML = '';
+    this.DOM.placeForImage.appendChild(img);
   }
 
   // hide the image element
