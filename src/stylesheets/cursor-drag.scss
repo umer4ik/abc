@@ -34,7 +34,7 @@
   &__circle-copy {
     position: absolute;
     z-index: 1;
-    background: linear-gradient(to left, rgba(#f00, .1), rgba(#00f, .1), rgba(#0f0, .1), rgba(#000, .1), rgba(#fff, .1), rgba(#ff0, .1), rgba(#0ff, .1));
+    background-color: rgba(#679096, .1);
     animation: bg-animation 20s ease infinite;
     background-size: 700% 700%;
     width: 80px;
@@ -65,8 +65,8 @@
   &.hover-link {
     circle {
       transform: scale(1);
-      fill: rgba(#DAE9EB, .3);
-      stroke: rgba($text-color, .3);
+      fill: rgba(#DAE9EB, 0);
+      stroke: rgba($text-color, 0);
     }
     .cursor-drag__circle-copy {
       transform: scale(1);
