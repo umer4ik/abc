@@ -51,6 +51,20 @@
   &--solid {
     background-color: #fff;
   }
+  &--no-outline-on-hover {
+    &:hover {
+      overflow: visible;
+      border-color: transparent;
+      // background-color: $text-color;
+      // transition: transform .35s $easing, border-color .35s $easing, background-color .01s .34s $easing;
+      @include desktop {
+        transform: scale(1.2);
+        &::after {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
   &--no-hover {
     &:hover {
       @include desktop {
