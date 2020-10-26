@@ -36,7 +36,7 @@ const initLoader = () => new Promise((resolve) => {
 
   const renderPercents = () => {
     let i = 0;
-    const step = 0.5;
+    const step = 0.7;
     const renderFrame = () => {
       i += step;
       const r = Math.round(i) > 100 ? 100 : Math.round(i);
@@ -50,12 +50,20 @@ const initLoader = () => new Promise((resolve) => {
   setTimeout(() => {
     window.scrollTo(0, 0);
   }, 2000);
+  setTimeout(() => {
+    renderPercents();
+  }, 600);
+  gsap.timeline()
+    .to(progress, {
+      width: '100%',
+      duration: 3,
+    });
   gsap
     .timeline()
     .to(frames, {
       width: '100%',
       duration: 2,
-      delay: 2,
+      delay: 0.4,
       stagger: 0.2,
       ease: Power0.easeNone,
     })
@@ -129,16 +137,6 @@ const initLoader = () => new Promise((resolve) => {
         }, '-=1');
     })
     .then(finish);
-
-  gsap.timeline()
-    .to(progress, {
-      width: '100%',
-      duration: 4,
-    });
-  renderPercents();
-  setTimeout(() => {
-    resolve();
-  }, 5000);
 });
 
 export default initLoader;

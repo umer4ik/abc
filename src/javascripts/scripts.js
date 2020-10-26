@@ -42,7 +42,10 @@ const run = (...functions) => functions.forEach((item) => {
 const pageFunctionsMap = {
   index: [
     // initEye,
-    initMagneticChart,
+    {
+      func: initMagneticChart,
+      delay: 100,
+    },
     {
       func: initScrollSection,
       delay: 100,
