@@ -16,10 +16,9 @@ window.addEventListener('mousemove', (ev) => {
 });
 
 export default class MenuItem {
-  constructor(el, inMenuPosition, animatableProperties, images, placeForImage) {
+  constructor(el, inMenuPosition, animatableProperties, images) {
     // el is the <a> with class "menu__item"
     this.DOM = { el };
-    this.DOM.placeForImage = placeForImage;
     this.images = images;
     // position in the Menu
     this.inMenuPosition = inMenuPosition;
@@ -136,10 +135,8 @@ export default class MenuItem {
   }
 
   pushImageToPlace() {
-    const img = document.createElement('img');
-    [, img.src] = this.images[this.inMenuPosition];
-    this.DOM.placeForImage.innerHTML = '';
-    this.DOM.placeForImage.appendChild(img);
+    document.querySelectorAll('.hover-reveal.show-on-mobile').forEach((el) => el.classList.remove('show-on-mobile'));
+    this.DOM.reveal.classList.add('show-on-mobile');
   }
 
   // hide the image element

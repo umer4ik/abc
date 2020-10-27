@@ -8,6 +8,18 @@
   pointer-events: none;
   opacity: 0;
   will-change: transform;
+  @include tablet {
+    transition: opacity .45s $easing;
+    z-index: 1;
+    width: 88px;
+    height: 88px;
+    top: 0;
+    left: auto;
+    right: 62px;
+  }
+  &.show-on-mobile {
+    opacity: 1;
+  }
 }
 
 .hover-reveal__inner {
