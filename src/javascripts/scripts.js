@@ -1,17 +1,20 @@
 // Load jQuery from NPM
 /* eslint-disable no-new */
+import Navigo from 'navigo';
 import initEye from './eye';
-import initMagneticChart from './magnetic';
-import initScrollSection from './scroll-section';
-import initMenu from './image-hover';
-import initCarousel from './carousel';
+import magneticChart from './magnetic';
+import scrollSection from './scroll-section';
+import imageHover from './image-hover';
+import carousel from './carousel';
 import initFlipText from './abc-text-flip';
 import initLoader from './loader';
-import initModals from './modals';
-import initScroll from './smooth-scroll';
+import modals from './modals';
+import smoothScroll from './smooth-scroll';
 import initCursor from './cursor';
 import initFabToTop from './fab-to-top';
-import { PAGE } from './constants';
+import scrollAnimation from './scroll-animation';
+import initPageTransition from './page-transition';
+import curtain from './curtain';
 
 const projectsImagesMap = {};
 const abcBoardMembersImagesMap = {};
@@ -29,60 +32,124 @@ importAll(require.context('../images/abc-board-members/', true, /\.png$/), abcBo
 const projectImages = Object.entries(projectsImagesMap);
 const abcBoardMembersImages = Object.entries(abcBoardMembersImagesMap);
 
-const run = (...functions) => functions.forEach((item) => {
-  const { params = [] } = item;
-  if (typeof item === 'function') {
-    item();
-  } else if (item.delay) {
-    setTimeout(() => item.func(...params), item.delay);
+const run = (nameOfTheRunner = 'init') => (...initializers) => initializers.forEach((initializer) => {
+  const runner = initializer[nameOfTheRunner];
+  const { params = [] } = runner;
+  if (typeof runner === 'function') {
+    runner();
+  } else if (runner.delay) {
+    setTimeout(() => runner.func(...params), runner.delay);
   } else {
-    item.func(...params);
+    runner.func(...params);
   }
 });
+window.scrollSection = scrollSection;
+window.carousel = carousel;
+window.smoothScroll = smoothScroll;
 const pageFunctionsMap = {
   index: [
-    // initEye,
     {
-      func: initMagneticChart,
-      delay: 100,
+      init: {
+        func: magneticChart.init,
+        delay: 100,
+      },
+      destroy: magneticChart.destroy,
     },
     {
-      func: initScrollSection,
-      delay: 100,
+      init: {
+        func: scrollSection.init,
+        delay: 100,
+      },
+      destroy: scrollSection.destroy,
     },
     {
-      func: initMenu,
-      params: [projectImages],
+      init: {
+        func: imageHover.init,
+        params: [projectImages],
+      },
+      destroy: imageHover.destroy,
     },
-    initCarousel,
-    initModals,
-    initScroll,
-    initCursor,
+    {
+      init: carousel.init,
+      destroy: carousel.destroy,
+    },
+    {
+      init: modals.init,
+      destroy: modals.destroy,
+    },
+    {
+      init: {
+        func: smoothScroll.init,
+        delay: 75,
+      },
+      destroy: smoothScroll.destroy,
+    },
+    {
+      init: scrollAnimation.init,
+      destroy: scrollAnimation.destroy,
+    },
   ],
   projects: [
-    // initEye,
     {
-      func: initScrollSection,
-      params: [true],
+      init: {
+        func: scrollSection.init,
+        delay: 100,
+        params: [true],
+      },
+      destroy: scrollSection.destroy,
     },
-    initModals,
-    initScroll,
-    initCursor,
+    {
+      init: modals.init,
+      destroy: modals.destroy,
+    },
+    {
+      init: {
+        func: smoothScroll.init,
+        delay: 75,
+      },
+      destroy: smoothScroll.destroy,
+    },
+    {
+      init: scrollAnimation.init,
+      destroy: scrollAnimation.destroy,
+    },
   ],
   about: [
     // initEye,
     {
-      func: initScrollSection,
-      params: [true],
+      init: {
+        func: scrollSection.init,
+        delay: 100,
+        params: [true],
+      },
+      destroy: scrollSection.destroy,
     },
-    initFlipText,
     {
-      func: initMenu,
-      params: [abcBoardMembersImages],
+      init: initFlipText,
+      destroy: () => {},
     },
-    initModals,
-    initScroll,
-    initCursor,
+    {
+      init: {
+        func: imageHover.init,
+        params: [abcBoardMembersImages],
+      },
+      destroy: imageHover.destroy,
+    },
+    {
+      init: modals.init,
+      destroy: modals.destroy,
+    },
+    {
+      init: {
+        func: smoothScroll.init,
+        delay: 75,
+      },
+      destroy: smoothScroll.destroy,
+    },
+    {
+      init: scrollAnimation.init,
+      destroy: scrollAnimation.destroy,
+    },
   ],
 };
 
@@ -91,6 +158,49 @@ setTimeout(() => {
   initFabToTop();
 });
 
+const curtainTime = 1000;
+
 initLoader().then(() => {
-  run(...pageFunctionsMap[PAGE]);
+  run('init')(...pageFunctionsMap[document.body.getAttribute('data-page')]);
+  // init common things for all of the pages, which shouldn't be updated
+  initCursor();
+  const router = new Navigo();
+  router.hooks({
+    before: (done) => {
+      // show curtain
+      curtain.show();
+
+      // destroy initializers
+
+      setTimeout(() => {
+        run('destroy')(...pageFunctionsMap[document.body.getAttribute('data-page')]);
+        done();
+        // hide curtain
+      }, curtainTime);
+    },
+    after() {
+      window.scrollTo(0, 0);
+    },
+  });
+  const createRouterHandler = (href, page) => () => {
+    fetch(href)
+      .then((response) => response.text())
+      .then((pageContent) => {
+        const parser = new DOMParser();
+        const d = parser.parseFromString(pageContent, 'text/html');
+        const mainContainerContent = d.querySelector('.main__container').innerHTML;
+        const mainContainer = document.querySelector('.main__container');
+        mainContainer.innerHTML = mainContainerContent;
+        document.body.setAttribute('data-page', page);
+        run('init')(...pageFunctionsMap[page]);
+        curtain.hide();
+      });
+  };
+  router.on({
+    'about.html': createRouterHandler('about.html', 'about'),
+    'projects.html': createRouterHandler('projects.html', 'projects'),
+    '': createRouterHandler('index.html', 'index'),
+  });
+
+  initPageTransition(router);
 });

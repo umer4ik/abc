@@ -44,8 +44,6 @@ class SmoothScroll {
     this.DOM.scrollable = this.DOM.main.querySelector('div[data-scroll]');
     // the items on the page
     this.items = [];
-    this.DOM.content = this.DOM.main.querySelector('.content');
-    // [...this.DOM.content.querySelectorAll('.content__item')].forEach((item) => this.items.push(new Item(item)));
     // here we define which property will change as we scroll the page
     // in this case we will be translating on the y-axis
     // we interpolate between the previous and current value to achieve the smooth scrolling effect
@@ -62,6 +60,10 @@ class SmoothScroll {
         setValue: () => docScroll,
       },
     };
+    this.init();
+  }
+
+  init() {
     // set the body's height
     this.setSize();
     // set the initial values
@@ -71,7 +73,17 @@ class SmoothScroll {
     // init/bind events
     this.initEvents();
     // start the render loop
-    requestAnimationFrame(() => this.render());
+    this.requestRender();
+  }
+
+  requestRender() {
+    this.lastFrame = requestAnimationFrame(() => this.render());
+  }
+
+  destroy() {
+    if (this.lastFrame) {
+      cancelAnimationFrame(this.lastFrame);
+    }
   }
 
   update() {
@@ -136,11 +148,23 @@ class SmoothScroll {
     }
 
     // loop..
-    requestAnimationFrame(() => this.render());
+    this.requestRender();
   }
 }
-
-export default () => {
+let smoothScrollInstance;
+const initScroll = () => {
   getPageYScroll();
-  new SmoothScroll();
+  if (!smoothScrollInstance) smoothScrollInstance = new SmoothScroll();
+  else smoothScrollInstance.init();
 };
+
+const smoothScroll = {
+  init() {
+    initScroll();
+  },
+  destroy() {
+    // if (smoothScrollInstance) smoothScrollInstance.destroy();
+  },
+};
+
+export default smoothScroll;

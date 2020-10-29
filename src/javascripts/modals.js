@@ -4,8 +4,10 @@ window.$ = $;
 window.jQuery = $;
 require('jquery-modal');
 
+let initialized = false;
+
 const initModals = () => {
-  $('[data-open-modal]').on('click', function openModal() {
+  $('body').on('click', '[data-open-modal]', function openModal() {
     const id = this.getAttribute('data-open-modal');
     $(id).modal({
       escapeClose: false,
@@ -13,12 +15,7 @@ const initModals = () => {
       showClose: false,
     });
   });
-  $('.modal').on($.modal.BEFORE_OPEN, function beforeOpen() {
-    setTimeout(() => {
-      $(this).addClass('open');
-    });
-  });
-  $('.modal__close').on('click', function beforeClose() {
+  $('body').on('click', '.modal__close', function beforeClose() {
     $(this).closest('.modal').removeClass('open');
     setTimeout(() => {
       $(this).closest('.blocker').fadeOut(200, 'swing', () => {
@@ -37,7 +34,7 @@ const initModals = () => {
       });
     }, 350);
   });
-  $('.member__btn').on('click', function toggleMemberInfo() {
+  $('body').on('click', '.member__btn', function toggleMemberInfo() {
     $('.member__btn').each((index, btn) => {
       if (btn === this) return;
       $(btn).removeClass(['round-outline-btn--no-hover', 'round-outline-btn--no-outline'])
@@ -49,6 +46,31 @@ const initModals = () => {
       $(this).toggleClass(['round-outline-btn--solid', 'round-outline-btn--no-outline']);
     }, 300);
   });
+  initialized = true;
 };
 
-export default initModals;
+function beforeOpen() {
+  setTimeout(() => {
+    $(this).addClass('open');
+  });
+}
+
+const addModalCloseEvent = () => {
+  $('.modal').on($.modal.BEFORE_OPEN, beforeOpen);
+};
+
+const removeModalCloseEvent = () => {
+  $('.modal').off($.modal.BEFORE_OPEN, beforeOpen);
+};
+
+const modals = {
+  init() {
+    if (!initialized) initModals();
+    addModalCloseEvent();
+  },
+  destroy() {
+    removeModalCloseEvent();
+  },
+};
+
+export default modals;

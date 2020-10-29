@@ -71,19 +71,19 @@ export default () => {
 
   requestAnimationFrame(loop);
 
-  const cursorModifiers = document.querySelectorAll('[data-cursor-class]');
-
-  cursorModifiers.forEach((cursorModifier) => {
-    cursorModifier.addEventListener('mouseenter', function onMouseEnter() {
+  // cursor modifiers
+  document.body.addEventListener('mouseover', (e) => {
+    if (e.target.matches('[data-cursor-class]')) {
       rotateEnabled = false;
-      const className = this.getAttribute('data-cursor-class');
+      const className = e.target.getAttribute('data-cursor-class');
       cursor.classList.add(className);
-    });
-
-    cursorModifier.addEventListener('mouseleave', function onMouseLeave() {
+    }
+  });
+  document.body.addEventListener('mouseout', (e) => {
+    if (e.target.matches('[data-cursor-class]')) {
       rotateEnabled = true;
-      const className = this.getAttribute('data-cursor-class');
+      const className = e.target.getAttribute('data-cursor-class');
       cursor.classList.remove(className);
-    });
+    }
   });
 };

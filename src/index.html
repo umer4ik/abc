@@ -7,6 +7,7 @@
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    /* critical css, keep it here */
     .loader {
       position: fixed;
       width: 2400px;
@@ -142,8 +143,8 @@
         <img src="images/logoheader.png" alt="ABC">
       </a>
       <div class="header__links">
-        <a href="projects.html" class="header__link" data-cursor-class="hover-link">Projects</a>
-        <a href="about.html" class="header__link" data-cursor-class="hover-link">About us</a>
+        <a href="projects.html" class="header__link" data-cursor-class="hover-link" data-page-name="projects">Projects</a>
+        <a href="about.html" class="header__link" data-cursor-class="hover-link" data-page-name="about">About us</a>
         <a href="#" class="header__btn round-btn">
           <img src="images/envelope.svg" alt="">
         </a>
@@ -154,10 +155,7 @@
   </header>
   <main class="main">
     <div class="main__container" data-scroll>
-
-
       <div class="top-section">
-
         <div class="introduction" data-section-color="#E7F1F2">
           <div class="introduction__container">
             <div class="introduction__chart">
@@ -171,9 +169,9 @@
               <div class="introduction__title">
                 <span class="split-line">We help</span> <span class="split-line">organizations</span> <span class="split-line">develop better</span> <span class="split-line">learning practices</span> <span class="split-line">and cultures.</span>
               </div>
-              <div class="introduction__description">Abc Advisory is a startup that provides fundamental tools,
+              <div class="introduction__description animate-showing-desktop">Abc Advisory is a startup that provides fundamental tools,
                 resources, and services for learning and knowledge management. </div>
-              <button class="btn introduction__btn" data-cursor-class="hover-link">
+              <button class="btn introduction__btn animate-showing-desktop" data-cursor-class="hover-link">
                 <span class="btn__text" data-text="Become a partner">
                   <span>Become a partner</span>
                 </span>
@@ -186,15 +184,15 @@
       <div class="services" data-section="Our Services" data-section-color="#fff">
         <div class="services__container">
           <div class="services-introduction">
-            <div class="services-introduction__title">Discover some of our work</div>
-            <div class="services-introduction__description">We provide strategic learning and knowledge management
+            <div class="services-introduction__title animate-showing-desktop">Discover some of our work</div>
+            <div class="services-introduction__description animate-showing-desktop">We provide strategic learning and knowledge management
               services to organizations working in international development and related sectors. With clients in
               humanitarian aid, strategic communications, health, finance, and conflict stabilization, we've supported:
             </div>
           </div>
-          <div class="services__title">Our Services</div>
+          <div class="services__title animate-showing-desktop">Our Services</div>
           <div class="services__list">
-            <div class="service">
+            <div class="service animate-showing-desktop">
               <div class="service__number">01.</div>
               <div class="service__title">Learning strategy and design</div>
               <div class="service__description">Helping organizations design learning strategies that align with program
@@ -210,7 +208,7 @@
                 </svg>
               </button>
             </div>
-            <div class="service">
+            <div class="service animate-showing-desktop delay-5">
               <div class="service__number">02.</div>
               <div class="service__title">Training, facilitation, and mentorship</div>
               <div class="service__description">Partnering with organizations to design and deliver targeted learning
@@ -226,7 +224,7 @@
                 </svg>
               </button>
             </div>
-            <div class="service">
+            <div class="service animate-showing-desktop delay-7">
               <div class="service__number">03.</div>
               <div class="service__title">Learning tools and products.</div>
               <div class="service__description">Using media and technology to develop a range of tools and products to
@@ -247,39 +245,48 @@
       </div>
       <div class="work" data-section="Our Partners" data-section-color="#FCF3DA">
         <div class="work__container">
-          <div class="work__title">
+          <div class="work__title animate-showing-desktop">
             Our team work with:
           </div>
           <div class="work__partners list">
-            <div class="partner item">
-              <div class="partner__title item__title">USAID</div>
-              <div class="partner__number item__number">(01)</div>
+            <div class="animate-showing-desktop">
+              <div class="partner item">
+                <div class="partner__title item__title">USAID</div>
+                <div class="partner__number item__number">(01)</div>
+              </div>
             </div>
-            <div class="partner item">
-              <div class="partner__title item__title">OTI</div>
-              <div class="partner__number item__number">(02)</div>
+            <div class="animate-showing-desktop">
+              <div class="partner item">
+                <div class="partner__title item__title">OTI</div>
+                <div class="partner__number item__number">(02)</div>
+              </div>
             </div>
-            <div class="partner item">
-              <div class="partner__title item__title">Chemonics</div>
-              <div class="partner__number item__number">(03)</div>
+            <div class="animate-showing-desktop">
+              <div class="partner item">
+                <div class="partner__title item__title">Chemonics</div>
+                <div class="partner__number item__number">(03)</div>
+              </div>
             </div>
-            <div class="partner item">
-              <div class="partner__title item__title">Proximity</div>
-              <div class="partner__number item__number">(04)</div>
+            <div class="animate-showing-desktop">
+              <div class="partner item">
+                <div class="partner__title item__title">Proximity</div>
+                <div class="partner__number item__number">(04)</div>
+              </div>
             </div>
-            <div class="partner item">
-              <div class="partner__title item__title">UK FCO</div>
-              <div class="partner__number item__number">(05)</div>
+            <div class="animate-showing-desktop">
+              <div class="partner item">
+                <div class="partner__title item__title">UK FCO</div>
+                <div class="partner__number item__number">(05)</div>
+              </div>
             </div>
-            <div class="partner item">
-              <div class="partner__title item__title">DT Global</div>
-              <div class="partner__number item__number">(06)</div>
-            </div>
-            <div class="list__place-for-image">
-              <div class="list__rotate-image-holder"></div>
+            <div class="animate-showing-desktop">
+              <div class="partner item">
+                <div class="partner__title item__title">DT Global</div>
+                <div class="partner__number item__number">(06)</div>
+              </div>
             </div>
           </div>
-          <button class="btn work__btn">
+          <button class="btn work__btn animate-showing-desktop">
             <span class="btn__text" data-text="Become a partner">
               <span>Become a partner</span>
             </span>
@@ -289,10 +296,10 @@
       </div>
       <div class="projects-section" data-section="Our Projects" data-section-color="#EBEDF0">
         <div class="projects-section__container">
-          <div class="projects-section__title">
+          <div class="projects-section__title animate-showing-desktop">
             Some of our past projects include:
           </div>
-          <div class="projects-section__carousel">
+          <div class="projects-section__carousel animate-showing-desktop">
             <div class="projects-carousel" data-cursor-class="hover-carousel">
               <div class="project-thumb">
                 <div class="project-thumb__container">
@@ -380,10 +387,10 @@
       </div>
       <footer class="footer" data-section="Let’s talk" data-section-color="#fff">
         <div class="footer__container">
-          <div class="footer__text">
+          <div class="footer__text animate-showing-desktop">
             Interested in a better way to learn?<br>Let’s talk.
           </div>
-          <a href="#" class="footer__mail" data-cursor-class="hover-link">hello@abcadvisory.co</a>
+          <a href="#" class="footer__mail animate-showing-desktop" data-cursor-class="hover-link">hello@abcadvisory.co</a>
           <div class="footer__footer">
             <div class="footer__copyright">© 2020, Abc Advisory Company. All Rights Reserved.</div>
             <div class="footer__designers">Designed by <a href="#" data-cursor-class="hover-link">Obys</a></div>
@@ -391,7 +398,7 @@
         </div>
       </footer>
     </div>
-    <div data-section="Back to top" ></div>
+    <div data-section="Back to top"></div>
     <div class="to-top-faw">
       <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -441,6 +448,30 @@
       </div>
     </div>
   </div>
+  <!-- about modal -->
+  <div id="member1" class="modal">
+    <button class="modal__close round-outline-btn round-outline-btn--solid round-outline-btn--no-outline-on-hover" data-cursor-class="hover-link">
+      <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M6.69755 7.77469C6.9955 8.07258 7.47858 8.07258 7.77653 7.77469C8.07449 7.4768 8.07449 6.99383 7.77653 6.69594L5.07921 3.99919L7.77474 1.30423C8.07269 1.00634 8.0727 0.523364 7.77474 0.225474C7.47679 -0.0724151 6.99371 -0.0724149 6.69576 0.225474L4.00022 2.92043L1.30263 0.223417C1.00467 -0.0744725 0.521595 -0.0744728 0.223642 0.223417C-0.0743122 0.521306 -0.0743113 1.00428 0.223642 1.30217L2.92124 3.99919L0.221848 6.69799C-0.0761054 6.99588 -0.0761054 7.47886 0.221848 7.77675C0.519801 8.07464 1.00288 8.07464 1.30083 7.77675L4.00022 5.07794L6.69755 7.77469Z"
+          fill="#1E1F21" />
+      </svg>
+    </button>
+    <div class="modal__inner">
+      <div class="modal__container">
+        <div class="member__info member__info--visible open">
+          <div class="member__info-inner">
+            <div class="member__name">Yanikk Lewis</div>
+            <div class="member__position">Director</div>
+            <div class="member__description">
+              Yanikk is a Director and partner at Abc Advisory Company, where he focuses on strategy and development. Immediately before Abc Advisory, Yanikk served as the Head of Research andInsights at IN2, and prior to that, he held various research, monitoring, evaluation, and learning roles across the public and private sectors.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="curtain"></div>
 
 
 </body>

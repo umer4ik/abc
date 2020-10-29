@@ -29,6 +29,10 @@ export default class Menu {
     // this.showMenuItems();
   }
 
+  destroy() {
+    this.menuItems.forEach((menuItem) => menuItem.destroy());
+  }
+
   // initial animation for revealing the menu items
   // showMenuItems() {
   //   gsap.to(this.menuItems.map((item) => item.DOM.textInner), {

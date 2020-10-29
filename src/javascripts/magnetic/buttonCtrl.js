@@ -44,9 +44,8 @@ export default class ButtonCtrl extends EventEmitter {
     // calculate size/position
     this.calculateSizePosition();
     // init events
-    this.initEvents();
+    this.init();
     // loop fn
-    requestAnimationFrame(() => this.render());
   }
 
   calculateSizePosition() {
@@ -56,14 +55,20 @@ export default class ButtonCtrl extends EventEmitter {
     this.distanceToTrigger = this.rect.width * 1.5;
   }
 
-  initEvents() {
+  init() {
     this.onResize = () => this.calculateSizePosition();
     window.addEventListener('resize', this.onResize);
+    this.lastFrame = requestAnimationFrame(() => this.render());
+  }
+
+  destroy() {
+    window.removeEventListener('resize', this.onResize);
+    if (this.lastFrame) cancelAnimationFrame(this.lastFrame);
   }
 
   render() {
     if (window.innerWidth < 1024) {
-      requestAnimationFrame(() => this.render());
+      this.lastFrame = requestAnimationFrame(() => this.render());
       this.DOM.el.style.transform = 'none';
       this.DOM.deco.style.transform = 'none';
       return;
@@ -95,7 +100,7 @@ export default class ButtonCtrl extends EventEmitter {
     // this.DOM.text.style.transform = `translate3d(${-this.renderedStyles.tx.previous * 0.2}px, ${-this.renderedStyles.ty.previous * 0.2}px, 0)`;
     this.DOM.deco.style.transform = `translate3d(${-this.renderedStyles.tx.previous}px, ${-this.renderedStyles.ty.previous}px, 0)`;
 
-    requestAnimationFrame(() => this.render());
+    this.lastFrame = requestAnimationFrame(() => this.render());
   }
 
   enter() {

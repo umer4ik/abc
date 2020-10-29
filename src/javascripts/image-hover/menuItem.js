@@ -29,7 +29,7 @@ export default class MenuItem {
     // create the image structure
     this.layout();
     // initialize some events
-    this.initEvents();
+    this.init();
   }
 
   // create the image structure
@@ -71,7 +71,7 @@ export default class MenuItem {
   }
 
   // bind some events
-  initEvents() {
+  init() {
     this.mouseenterFn = () => {
       if (window.innerWidth <= 1024) {
         return;
@@ -103,6 +103,14 @@ export default class MenuItem {
     this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
     this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
     this.DOM.el.addEventListener('click', this.onClick);
+  }
+
+  destroy() {
+    // TODO clear the DOM
+    console.log('td clear the DOM');
+    this.DOM.el.removeEventListener('mouseenter', this.mouseenterFn);
+    this.DOM.el.removeEventListener('mouseleave', this.mouseleaveFn);
+    this.DOM.el.removeEventListener('click', this.onClick);
   }
 
   // show the image element

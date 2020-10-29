@@ -2,10 +2,17 @@
 import Menu from './menu';
 
 // menu (<nav> element)
-const menuEl = document.querySelector('.list');
 
 // preload the images set as data attrs in the menu items
-export default function init(images) {
-  // initialize menu
-  new Menu(menuEl, images);
-}
+let menu;
+const imageHover = {
+  init(images) {
+    const menuEl = document.querySelector('.list');
+    menu = new Menu(menuEl, images);
+  },
+  destroy() {
+    menu.destroy();
+  },
+};
+
+export default imageHover;

@@ -2,8 +2,10 @@
 import { tns } from 'tiny-slider/src/tiny-slider';
 import $ from 'jquery';
 
+let projectsCarousel;
+
 const initCarousel = () => {
-  const projectsCarousel = tns({
+  projectsCarousel = tns({
     container: '.projects-carousel',
     items: 2,
     slideBy: 'slide',
@@ -15,7 +17,6 @@ const initCarousel = () => {
     nav: false,
     controls: false,
   });
-
   projectsCarousel.events.on('indexChanged', (info) => {
     const i = info.displayIndex - 1;
     $('.projects-section__carousel-nav-item').removeClass('active');
@@ -35,4 +36,15 @@ const initCarousel = () => {
   });
 };
 
-export default initCarousel;
+const carousel = {
+  init: () => {
+    initCarousel();
+  },
+  destroy: () => {
+    if (projectsCarousel) {
+      projectsCarousel.destroy();
+    }
+  },
+};
+
+export default carousel;
