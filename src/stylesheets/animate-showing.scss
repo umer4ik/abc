@@ -2,7 +2,7 @@
   @include wider-than-tablet {
     transform: translateY(60px);
     opacity: 0;
-    transition: opacity .6s .3s $easing, transform .6s .3s $easing;
+    transition: opacity .4s .3s $easing, transform .4s .3s $easing;
   }
   &--showed {
     @include wider-than-tablet {
@@ -15,7 +15,7 @@
 .animate-showing {
   transform: translateY(60px);
   opacity: 0;
-  transition: opacity .6s .3s $easing, transform .6s .3s $easing;
+  transition: opacity .4s .3s $easing, transform .4s .3s $easing;
   &--showed {
     opacity: 1;
     transform: none;

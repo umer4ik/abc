@@ -14,6 +14,9 @@
   &__avatar {
     width: 100%;
     vertical-align: middle;
+    @include wider-than-tablet {
+      min-height: 545px;
+    }
   }
   &__btn {
     right: -2px;
