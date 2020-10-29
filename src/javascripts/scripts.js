@@ -10,7 +10,7 @@ import initFlipText from './abc-text-flip';
 import initLoader from './loader';
 import modals from './modals';
 import smoothScroll from './smooth-scroll';
-import initCursor from './cursor';
+import cursor from './cursor';
 import initFabToTop from './fab-to-top';
 import scrollAnimation from './scroll-animation';
 import initPageTransition from './page-transition';
@@ -48,6 +48,10 @@ window.carousel = carousel;
 window.smoothScroll = smoothScroll;
 const pageFunctionsMap = {
   index: [
+    {
+      init: cursor.init,
+      destroy: cursor.destroy,
+    },
     {
       init: {
         func: magneticChart.init,
@@ -91,6 +95,10 @@ const pageFunctionsMap = {
   ],
   projects: [
     {
+      init: cursor.init,
+      destroy: cursor.destroy,
+    },
+    {
       init: {
         func: scrollSection.init,
         delay: 100,
@@ -115,7 +123,10 @@ const pageFunctionsMap = {
     },
   ],
   about: [
-    // initEye,
+    {
+      init: cursor.init,
+      destroy: cursor.destroy,
+    },
     {
       init: {
         func: scrollSection.init,
@@ -163,7 +174,6 @@ const curtainTime = 1000;
 initLoader().then(() => {
   run('init')(...pageFunctionsMap[document.body.getAttribute('data-page')]);
   // init common things for all of the pages, which shouldn't be updated
-  initCursor();
   const router = new Navigo();
   router.hooks({
     before: (done) => {
