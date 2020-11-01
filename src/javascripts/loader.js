@@ -18,10 +18,8 @@ const initLoader = () => new Promise((resolve) => {
   const loader = document.querySelector('.loader');
   const isIndexPage = document.body.getAttribute('data-page') === 'index';
   const finish = () => {
-    setTimeout(() => {
-      document.body.classList.add('ready');
-      return resolve();
-    });
+    document.body.classList.add('ready');
+    return resolve();
   };
   if (!loader) {
     finish();
@@ -121,7 +119,10 @@ const initLoader = () => new Promise((resolve) => {
             ease: Power4.easeInOut,
           }, '-=.5');
         }
-        line.then(finish);
+        // `finish` callback fires too late if it's inside `line.then(finish)`
+        setTimeout(() => {
+          finish();
+        }, 1000);
         return line;
       }
 
