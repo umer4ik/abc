@@ -44,6 +44,7 @@ export default {
           </svg>
         </div>
         <div class="cursor-drag__circle-copy"></div>
+        <div class="pulsating-circle"></div>
       `;
 
       document.body.appendChild(cursor);
@@ -95,8 +96,10 @@ export default {
       cursorModifier.addEventListener('mouseenter', onMouseEnter);
       cursorModifier.addEventListener('mouseleave', onMouseLeave);
     });
+    cursor.classList.remove('pulsating');
   },
   destroy: () => {
+    cursor.classList.add('pulsating');
     cursorModifiers.forEach((cursorModifier) => {
       cursorModifier.removeEventListener('mouseenter', onMouseEnter);
       cursorModifier.removeEventListener('mouseleave', onMouseLeave);

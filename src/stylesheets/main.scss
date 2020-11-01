@@ -18,9 +18,11 @@ button:focus {
 .main {
   min-height: 100%;
   overflow: hidden;
-  padding-top: 100px;
-  @include wider-than-tablet {
-    padding-top: 0;
+  &__container {
+    padding-top: 100px;
+    @include wider-than-tablet {
+      padding-top: 0;
+    }
   }
 }
 body {

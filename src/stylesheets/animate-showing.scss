@@ -1,14 +1,14 @@
 .animate-showing-desktop {
-  @include wider-than-tablet {
-    transform: translateY(60px);
-    opacity: 0;
-    transition: opacity .4s .3s $easing, transform .4s .3s $easing;
-  }
+  // @include wider-than-tablet {
+  transform: translateY(60px);
+  opacity: 0;
+  transition: opacity .4s .3s $easing, transform .4s .3s $easing;
+  // }
   &--showed {
-    @include wider-than-tablet {
-      opacity: 1;
-      transform: none;
-    }
+    // @include wider-than-tablet {
+    opacity: 1;
+    transform: none;
+    // }
   }
 }
 
@@ -23,13 +23,19 @@
 }
 
 .delay-5 {
-  transition-delay: .5s, .5s;
+  @include wider-than-tablet {
+    transition-delay: .5s, .5s;
+  }
 }
 
 .delay-7 {
-  transition-delay: .7s, .7s;
+  @include wider-than-tablet {
+    transition-delay: .7s, .7s;
+  }
 }
 
 .delay-9 {
-  transition-delay: .9s, .9s;
+  @include wider-than-tablet {
+    transition-delay: .9s, .9s;
+  }
 }

@@ -5,6 +5,7 @@
   <title>About</title>
   <meta name="description" content="Projects" />
   <style>
+    /* critical css, keep it here */
     .loader {
       position: fixed;
       width: 2400px;
@@ -17,8 +18,14 @@
       background-color: #dae9eb;
       overflow: hidden;
     }
-    @media screen and (max-width: 1024px) {
-      .loader { display: none; }
+    @media screen and (max-width: 1366px) {
+      .loader {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+      }
     }
 
     .loader__frame {
@@ -32,6 +39,18 @@
       overflow: hidden;
       width: 0;
     }
+    @media screen and (max-width: 1366px) {
+      .loader__frame {
+        margin: -50px 0 0;
+        height: 100vh;
+        /* width: 100vw; */
+        position: absolute;
+        overflow: hidden;
+        top: 50%;
+        left: 0;
+        padding: 0;
+      }
+    }
 
     .loader__frame img {
       width: 100vw;
@@ -44,6 +63,14 @@
       height: 68px;
       left: 260px;
       width: 80%;
+    }
+    @media screen and (max-width: 1366px) {
+      .loader__loading {
+        left: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 100%;
+      }
     }
 
     .loader__progress {
@@ -137,7 +164,7 @@
       <div class="header__links">
         <a href="projects.html" class="header__link" data-cursor-class="hover-link">Projects</a>
         <a href="about.html" class="header__link" data-cursor-class="hover-link">About us</a>
-        <a href="#" class="header__btn round-btn">
+        <a href="mailto:hello@abcadvisory.co" class="header__btn round-btn">
           <img src="images/envelope.svg" alt="">
         </a>
         <a href="mailto:hello@abcadvisory.co" class="header__link header__link--email" data-cursor-class="hover-link">E: hello@abcadvisory.co</a>
@@ -215,7 +242,7 @@
               <div class="member animate-showing-desktop delay-5">
                 <div class="member__avatar-holder">
                   <img class="member__avatar" src="images/member2.png" alt="Macey Stapleton">
-                  <button class="member__mobile-btn round-outline-btn round-outline-btn--solid">
+                  <button class="member__mobile-btn round-outline-btn round-outline-btn--solid" data-open-modal="#member1">
                     <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M6.14175 11.5137C6.1417 11.9877 6.5259 12.3719 6.99989 12.3718C7.47387 12.3718 7.85815 11.9875 7.8582 11.5135L7.85866 7.22161L12.1481 7.22115C12.6221 7.2211 13.0064 6.83682 13.0065 6.36284C13.0065 5.88886 12.6223 5.50466 12.1483 5.50471L7.85885 5.50517L7.85931 1.21483C7.85936 0.74085 7.47516 0.356651 7.00118 0.356702C6.52719 0.356753 6.14291 0.741034 6.14286 1.21502L6.1424 5.50535L1.84964 5.50581C1.37565 5.50586 0.991372 5.89014 0.991321 6.36413C0.99127 6.83811 1.37547 7.22231 1.84945 7.22226L6.14222 7.2218L6.14175 11.5137Z" fill="#1E1F21"/>
                     </svg>
@@ -273,15 +300,15 @@
           </div>
         </div>
       </div>
-      <footer class="footer" data-section="Let’s talk" data-section-color="#fff">
+      <footer class="footer" data-section="Let’s talk" data-section-color="#EBEDF0">
         <div class="footer__container">
-          <div class="footer__text animate-showing-desktop">
+          <div class="footer__text animate-showing-desktop" data-section-color="#fff">
             Interested in a better way to learn?<br>Let’s talk.
           </div>
-          <a href="#" class="footer__mail animate-showing-desktop" data-cursor-class="hover-link">hello@abcadvisory.co</a>
+          <a href="mailto:hello@abcadvisory.co" class="footer__mail animate-showing-desktop" data-cursor-class="hover-link">hello@abcadvisory.co</a>
           <div class="footer__footer">
             <div class="footer__copyright">© 2020, Abc Advisory Company. All Rights Reserved.</div>
-            <div class="footer__designers">Designed by <a href="#" data-cursor-class="hover-link">Obys</a></div>
+            <div class="footer__designers">Designed by <a href="https://obys.agency" target="_blank" data-cursor-class="hover-link">Obys</a></div>
           </div>
         </div>
       </footer>
@@ -332,7 +359,7 @@
     </div>
   </div>
   <!-- about modal -->
-  <div id="member1" class="modal">
+  <div id="member1" class="modal modal--about">
     <button class="modal__close round-outline-btn round-outline-btn--solid round-outline-btn--no-outline-on-hover" data-cursor-class="hover-link">
       <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd"

@@ -200,10 +200,25 @@ initLoader().then(() => {
         const d = parser.parseFromString(pageContent, 'text/html');
         const mainContainerContent = d.querySelector('.main__container').innerHTML;
         const mainContainer = document.querySelector('.main__container');
-        mainContainer.innerHTML = mainContainerContent;
-        document.body.setAttribute('data-page', page);
-        run('init')(...pageFunctionsMap[page]);
-        curtain.hide();
+        const innerImages = d.querySelectorAll('img');
+        let willBeLoaded = 0;
+        let loaded = 0;
+        innerImages.forEach((img) => {
+          if (img.src.indexOf('.gif') === -1) {
+            const image = document.createElement('img');
+            image.src = img.src;
+            willBeLoaded += 1;
+            image.onload = () => {
+              loaded += 1;
+              if (loaded === willBeLoaded) {
+                mainContainer.innerHTML = mainContainerContent;
+                document.body.setAttribute('data-page', page);
+                run('init')(...pageFunctionsMap[page]);
+                curtain.hide();
+              }
+            };
+          }
+        });
       });
   };
   router.on({

@@ -107,7 +107,6 @@ export default class MenuItem {
 
   destroy() {
     // TODO clear the DOM
-    console.log('td clear the DOM');
     this.DOM.el.removeEventListener('mouseenter', this.mouseenterFn);
     this.DOM.el.removeEventListener('mouseleave', this.mouseleaveFn);
     this.DOM.el.removeEventListener('click', this.onClick);

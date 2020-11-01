@@ -10,7 +10,7 @@ const toScrollAnimationElement = (el) => {
   return element;
 };
 
-let docScroll;
+let docScroll = 0;
 let innerHeight;
 
 const getPageYScroll = () => {

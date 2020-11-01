@@ -28,7 +28,6 @@
   }
   &__links {
     margin-left: auto;
-    font-size: 12px;
     line-height: 130%;
     display: flex;
     align-items: center;
@@ -42,6 +41,7 @@
   }
   &__link {
     margin-right: 16px;
+    font-size: 12px;
     @include wider-than-tablet {
       display: inline-block;
       position: relative;
@@ -93,6 +93,18 @@
             transition-delay: .35s;
           }
         }
+      }
+      @media screen and (min-width: 1441px) {
+        display: none;
+      }
+    }
+    &--email-xl {
+      display: none;
+      @media screen and (min-width: 1441px) {
+        display: inline-block;
+        top: 46px;
+        right: 85px;
+        position: absolute;
       }
     }
   }

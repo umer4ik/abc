@@ -14,14 +14,16 @@ const layout = () => {
 };
 
 const initLoader = () => new Promise((resolve) => {
+  const isMobile = window.innerWidth <= 1024;
   const loader = document.querySelector('.loader');
+  const isIndexPage = document.body.getAttribute('data-page') === 'index';
   const finish = () => {
     setTimeout(() => {
       document.body.classList.add('ready');
       return resolve();
     });
   };
-  if (!loader || window.innerWidth <= 1024) {
+  if (!loader) {
     finish();
     return;
   }
@@ -58,6 +60,11 @@ const initLoader = () => new Promise((resolve) => {
       width: '100%',
       duration: 3,
     });
+  const bdrsConfig = isMobile ? {} : {
+    borderRadius: '50%',
+    duration: 0.5,
+    ease: Power0.easeNone,
+  };
   gsap
     .timeline()
     .to(frames, {
@@ -67,11 +74,7 @@ const initLoader = () => new Promise((resolve) => {
       stagger: 0.2,
       ease: Power0.easeNone,
     })
-    .to(loader, {
-      borderRadius: '50%',
-      duration: 0.5,
-      ease: Power0.easeNone,
-    })
+    .to(loader, bdrsConfig)
     .then(() => {
       let loaderConfig = {};
       if (chart) {
@@ -99,6 +102,27 @@ const initLoader = () => new Promise((resolve) => {
           duration: 1,
           ease: Power0.easeNone,
         };
+      }
+      if (isMobile) {
+        loaderConfig = {
+          y: '100%',
+          // opacity: 0,
+          duration: 0.3,
+          ease: Power0.easeNone,
+        };
+        let line = gsap
+          .timeline()
+          .to(loader, loaderConfig, '+=0');
+        if (isIndexPage) {
+          line = line.to(titleLines, {
+            y: 0,
+            duration: 1.5,
+            stagger: 0.1,
+            ease: Power4.easeInOut,
+          }, '-=.5');
+        }
+        line.then(finish);
+        return line;
       }
 
       return gsap
