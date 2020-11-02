@@ -1,4 +1,5 @@
 import { gsap, Power0, Power4 } from 'gsap';
+import titleLinesInstance from './title-lines';
 
 function pad(inputNum, size) {
   let num = inputNum.toString();
@@ -6,27 +7,31 @@ function pad(inputNum, size) {
   return num;
 }
 
-const layout = () => {
-  document.querySelectorAll('.split-line').forEach((line) => {
-    const l = line;
-    l.innerHTML = `<span class="split-line__transparent-text">${line.innerHTML}</span><span class="split-line__hidden-text">${line.innerHTML}</span>`;
-  });
-};
+const MAX_LOADER_TIME = 4000;
 
 const initLoader = () => new Promise((resolve) => {
+  let finished = false;
   const isMobile = window.innerWidth <= 1024;
   const loader = document.querySelector('.loader');
-  const isIndexPage = document.body.getAttribute('data-page') === 'index';
+  const page = document.body.getAttribute('data-page');
+  const isIndexPage = page === 'index';
+  /* eslint-disable-next-line */
   const finish = () => {
-    document.body.classList.add('ready');
-    return resolve();
+    if (!finished) {
+      finished = true;
+      document.body.classList.add('ready');
+      return resolve();
+    }
   };
   if (!loader) {
     finish();
     return;
   }
-  layout();
-  const titleLines = document.querySelectorAll('.introduction__title .split-line__hidden-text');
+  setTimeout(() => {
+    finish();
+  }, MAX_LOADER_TIME);
+  titleLinesInstance.layout();
+  const titleLines = titleLinesInstance.getElements();
   const chart = document.querySelector('.introduction__chart');
   let finalX; let finalY;
   const frames = loader.querySelectorAll('.loader__frame');
@@ -126,7 +131,7 @@ const initLoader = () => new Promise((resolve) => {
         return line;
       }
 
-      return gsap
+      const result = gsap
         .timeline()
         .to(loader, loaderConfig, '-=.5')
         .to(frames, {
@@ -145,21 +150,20 @@ const initLoader = () => new Promise((resolve) => {
           marginTop: 16,
           duration: 1,
           ease: Power0.easeNone,
-        }, '-=1')
-        .to(titleLines, {
-          y: 0,
-          duration: 1.5,
-          stagger: 0.1,
-          ease: Power4.easeInOut,
-        }, '-=1')
+        }, '-=1');
+      if (titleLinesInstance.getElements().length) {
+        result.to(titleLines, titleLinesInstance.getConfig(page), '-=1');
+      }
+      result
         .to(loader, {
           opacity: 0,
           duration: 1,
-        }, '-=1')
+        }, '-=.5')
         .to(chart, {
           opacity: 1,
           duration: 1,
-        }, '-=1');
+        }, '-=.5');
+      return result;
     })
     .then(finish);
 });

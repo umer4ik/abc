@@ -1,19 +1,6 @@
 .list {
   position: relative;
   transition: background-color 1s $easing;
-  &__place-for-image {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-    mix-blend-mode: exclusion;
-    pointer-events: none;
-    height: 100%;
-    @include wider-than-tablet {
-      display: none;
-    }
-  }
   &__rotate-image-holder {
     animation: tilt 10s linear alternate infinite;
     height: 100%;

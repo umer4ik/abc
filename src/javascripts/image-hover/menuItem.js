@@ -143,7 +143,9 @@ export default class MenuItem {
 
   pushImageToPlace() {
     document.querySelectorAll('.hover-reveal.show-on-mobile').forEach((el) => el.classList.remove('show-on-mobile'));
+    document.querySelectorAll('.item.active-on-mobile').forEach((el) => el.classList.remove('active-on-mobile'));
     this.DOM.reveal.classList.add('show-on-mobile');
+    this.DOM.el.classList.add('active-on-mobile');
   }
 
   // hide the image element

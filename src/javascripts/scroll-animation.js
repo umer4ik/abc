@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { gsap, Power4 } from 'gsap';
 
 const toScrollAnimationElement = (el) => {
   const element = el;
@@ -6,6 +7,9 @@ const toScrollAnimationElement = (el) => {
   element.additionalOffset = 0;
   if (element.classList.contains('offset-100')) {
     element.additionalOffset = 100;
+  }
+  if (element.classList.contains('animate-tween')) {
+    element.animateTween = true;
   }
   return element;
 };
@@ -56,6 +60,14 @@ class ScrollAnimation {
         return;
       }
       if (docScroll > $(element).offset().top - innerHeight + element.additionalOffset) {
+        if (element.animateTween) {
+          gsap.timeline().to(element.querySelectorAll('.split-line__hidden-text'), {
+            y: 0,
+            duration: 1.5,
+            stagger: 0.1,
+            ease: Power4.easeInOut,
+          });
+        }
         element.classList.add(this.showingClassName);
         element.showed = true;
       }

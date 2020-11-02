@@ -11,6 +11,12 @@
   }
 }
 
+.delay-0 {
+  @include wider-than-tablet {
+    transition-delay: 0s, 0s;
+  }
+}
+
 .delay-5 {
   @include wider-than-tablet {
     transition-delay: .5s, .5s;

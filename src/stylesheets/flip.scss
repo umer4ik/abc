@@ -34,6 +34,9 @@
   animation: scale 4s infinite;
   transition: all .1s;
   transform-origin: bottom right;
+  // @include phone {
+  //   animation: none;
+  // }
 }
 
 .flip-slice.opposite {
@@ -41,6 +44,9 @@
   left: auto;
   animation: scale-opposite 4s infinite;
   transition: all .1s;
+  // @include phone {
+  //   animation: none;
+  // }
 }
 
 .flip-slice.opposite .flip-mask {

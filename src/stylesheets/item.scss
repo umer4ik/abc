@@ -20,6 +20,11 @@
       border-bottom-color: rgba($text-color, .4);
     }
   }
+  .active-on-mobile {
+    @include tighter-than-tablet {
+      border-bottom-color: rgba($text-color, .4);
+    }
+  }
   &__title {
     margin-right: auto;
     transition: opacity .35s $easing;
@@ -30,6 +35,11 @@
     }
     .item:hover & {
       @include wider-than-tablet {
+        opacity: 0.4;
+      }
+    }
+    .active-on-mobile & {
+      @include tighter-than-tablet {
         opacity: 0.4;
       }
     }
@@ -45,6 +55,11 @@
     }
     .item:hover & {
       @include wider-than-tablet {
+        opacity: 0.4;
+      }
+    }
+    .active-on-mobile & {
+      @include tighter-than-tablet {
         opacity: 0.4;
       }
     }

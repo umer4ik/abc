@@ -15,6 +15,7 @@ import initFabToTop from './fab-to-top';
 import scrollAnimation from './scroll-animation';
 import initPageTransition from './page-transition';
 import curtain from './curtain';
+import titleLinesInstance from './title-lines';
 
 const projectsImagesMap = {};
 const abcBoardMembersImagesMap = {};
@@ -54,6 +55,13 @@ const pageFunctionsMap = {
     },
     {
       init: {
+        func: cursor.addListeners,
+        delay: 150,
+      },
+      destroy: cursor.removeListeners,
+    },
+    {
+      init: {
         func: magneticChart.init,
         delay: 100,
       },
@@ -65,6 +73,10 @@ const pageFunctionsMap = {
         delay: 100,
       },
       destroy: scrollSection.destroy,
+    },
+    {
+      init: titleLinesInstance.init,
+      destroy: titleLinesInstance.destroy,
     },
     {
       init: {
@@ -100,6 +112,13 @@ const pageFunctionsMap = {
     },
     {
       init: {
+        func: cursor.addListeners,
+        delay: 150,
+      },
+      destroy: cursor.removeListeners,
+    },
+    {
+      init: {
         func: scrollSection.init,
         delay: 100,
         params: [true],
@@ -126,6 +145,13 @@ const pageFunctionsMap = {
     {
       init: cursor.init,
       destroy: cursor.destroy,
+    },
+    {
+      init: {
+        func: cursor.addListeners,
+        delay: 150,
+      },
+      destroy: cursor.removeListeners,
     },
     {
       init: {
@@ -161,6 +187,10 @@ const pageFunctionsMap = {
       init: scrollAnimation.init,
       destroy: scrollAnimation.destroy,
     },
+    {
+      init: titleLinesInstance.init,
+      destroy: titleLinesInstance.destroy,
+    },
   ],
 };
 
@@ -170,7 +200,6 @@ setTimeout(() => {
 });
 
 const curtainTime = 1000;
-
 initLoader().then(() => {
   run('init')(...pageFunctionsMap[document.body.getAttribute('data-page')]);
   // init common things for all of the pages, which shouldn't be updated
@@ -213,6 +242,7 @@ initLoader().then(() => {
               if (loaded === willBeLoaded) {
                 mainContainer.innerHTML = mainContainerContent;
                 document.body.setAttribute('data-page', page);
+                titleLinesInstance.layout();
                 run('init')(...pageFunctionsMap[page]);
                 curtain.hide();
               }

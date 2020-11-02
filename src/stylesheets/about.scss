@@ -55,18 +55,20 @@
     line-height: 140%;
     @include wider-than-tablet {
       font-size: 20px;
-      line-height: 130%;
+      line-height: 110%;
     }
     p {
       padding-bottom: .3em;
     }
   }
   &__important {
+    display: none;
     font-size: 35px;
     line-height: 100%;
     letter-spacing: -0.02em;
     padding-top: 46px;
     @include wider-than-tablet {
+      display: block;
       font-size: 80px;
       line-height: 100%;
       letter-spacing: -0.02em;
@@ -74,6 +76,17 @@
       margin-top: -50px;
       position: relative;
       z-index: 2;
+    }
+    &--mobile {
+      display: block;
+      @include wider-than-tablet {
+        display: none;
+      }
+    }
+    .split-line {
+      @include wider-than-tablet {
+        margin-bottom: -10px;
+      }
     }
   }
   &__btn {

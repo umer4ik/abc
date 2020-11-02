@@ -29,7 +29,7 @@ function onMouseLeave() {
 
 let cursorModifiers = [];
 
-export default {
+const cursorInstance = {
   init: () => {
     if (!domBuilt) {
       domBuilt = true;
@@ -91,18 +91,26 @@ export default {
 
       requestAnimationFrame(loop);
     }
+    // cursorInstance.addListeners();
+    cursor.classList.remove('pulsating');
+  },
+  destroy: () => {
+    cursor.classList.add('pulsating');
+    // cursorInstance.removeListeners();
+  },
+  addListeners: () => {
     cursorModifiers = document.querySelectorAll('[data-cursor-class]');
     cursorModifiers.forEach((cursorModifier) => {
       cursorModifier.addEventListener('mouseenter', onMouseEnter);
       cursorModifier.addEventListener('mouseleave', onMouseLeave);
     });
-    cursor.classList.remove('pulsating');
   },
-  destroy: () => {
-    cursor.classList.add('pulsating');
+  removeListeners: () => {
     cursorModifiers.forEach((cursorModifier) => {
       cursorModifier.removeEventListener('mouseenter', onMouseEnter);
       cursorModifier.removeEventListener('mouseleave', onMouseLeave);
     });
   },
 };
+
+export default cursorInstance;
