@@ -44,9 +44,7 @@ const run = (nameOfTheRunner = 'init') => (...initializers) => initializers.forE
     runner.func(...params);
   }
 });
-window.scrollSection = scrollSection;
-window.carousel = carousel;
-window.smoothScroll = smoothScroll;
+
 const pageFunctionsMap = {
   index: [
     {

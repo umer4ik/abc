@@ -53,7 +53,7 @@ const initLoader = () => new Promise((resolve) => {
     renderFrame();
   };
   setTimeout(() => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
   }, 2000);
   setTimeout(() => {
     renderPercents();
@@ -61,18 +61,18 @@ const initLoader = () => new Promise((resolve) => {
   gsap.timeline()
     .to(progress, {
       width: '100%',
-      duration: 3,
+      duration: 0,
     });
   const bdrsConfig = isMobile ? {} : {
     borderRadius: '50%',
-    duration: 0.5,
+    duration: 0,
     ease: Power0.easeNone,
   };
   gsap
     .timeline()
     .to(frames, {
       width: '100%',
-      duration: 2,
+      duration: 0,
       delay: 0.4,
       stagger: 0.2,
       ease: Power0.easeNone,
@@ -90,7 +90,7 @@ const initLoader = () => new Promise((resolve) => {
           width: 364,
           height: 364,
           borderRadius: '50%',
-          duration: 1,
+          duration: 0,
           ease: Power0.easeNone,
         };
       } else {
@@ -102,7 +102,7 @@ const initLoader = () => new Promise((resolve) => {
           width: 0,
           height: 0,
           borderRadius: '50%',
-          duration: 1,
+          duration: 0,
           ease: Power0.easeNone,
         };
       }
@@ -110,7 +110,7 @@ const initLoader = () => new Promise((resolve) => {
         loaderConfig = {
           y: '100%',
           // opacity: 0,
-          duration: 0.3,
+          duration: 0,
           ease: Power0.easeNone,
         };
         let line = gsap
@@ -119,7 +119,7 @@ const initLoader = () => new Promise((resolve) => {
         if (isIndexPage) {
           line = line.to(titleLines, {
             y: 0,
-            duration: 1.5,
+            duration: 0,
             stagger: 0.1,
             ease: Power4.easeInOut,
           }, '-=.5');
@@ -141,14 +141,14 @@ const initLoader = () => new Promise((resolve) => {
           paddingLeft: 0,
           top: 0,
           left: 0,
-          duration: 1,
+          duration: 0,
           ease: Power0.easeNone,
         }, '-=1')
         .to(lines, {
           width: 1440,
           marginLeft: -710,
           marginTop: 16,
-          duration: 1,
+          duration: 0,
           ease: Power0.easeNone,
         }, '-=1');
       if (titleLinesInstance.getElements().length) {
@@ -157,11 +157,11 @@ const initLoader = () => new Promise((resolve) => {
       result
         .to(loader, {
           opacity: 0,
-          duration: 1,
+          duration: 0,
         }, '-=.5')
         .to(chart, {
           opacity: 1,
-          duration: 1,
+          duration: 0,
         }, '-=.5');
       return result;
     })

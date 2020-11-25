@@ -20,6 +20,11 @@
       letter-spacing: -0.02em;
       padding-bottom: 13px;
     }
+    &--service {
+      @include wider-than-tablet {
+        padding-bottom: 35px;
+      }
+    }
   }
   &__description {
     font-size: 14px;
@@ -66,6 +71,25 @@
       @include wider-than-tablet {
         flex-grow: 1;
       }
+      p {
+        font-size: 16px;
+        line-height: 150%;
+        margin-top: 0;
+        margin-bottom: 1em;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  &__subtitle {
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    @include wider-than-tablet {
+      font-size: 22px;
+      padding-top: 25px;
+      padding-bottom: 8px;
     }
   }
 }

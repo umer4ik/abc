@@ -17,7 +17,6 @@
     top: 0;
     right: 17px;
     border-radius: 50%;
-    // background-color: #DAE9EB;
     overflow: hidden;
     background: url('../images//main-chart.svg') no-repeat #DAE9EB center center;
     background-size: cover;
@@ -26,7 +25,7 @@
       background-color: #DAE9EB;
       width: 364px;
       height: 364px;
-      top: -110px;
+      top: 0;
       right: 210px;
       opacity: 0;
     }
@@ -62,7 +61,7 @@
     padding-top: 40px;
     @include wider-than-tablet {
       padding-top: 0;
-      margin-top: 251px;
+      margin-top: 208px;
     }
   }
   &__description {

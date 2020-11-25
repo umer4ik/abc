@@ -5,6 +5,8 @@ import $ from 'jquery';
 let projectsCarousel;
 
 const initCarousel = () => {
+  const container = document.querySelector('.projects-carousel');
+  if (!container) return;
   projectsCarousel = tns({
     container: '.projects-carousel',
     items: 2,
@@ -27,7 +29,6 @@ const initCarousel = () => {
     projectsCarousel.goTo($(e.currentTarget).attr('data-slide'));
   });
 
-  const container = document.querySelector('.projects-carousel');
   container.addEventListener('mousedown', () => {
     container.classList.add('dragging');
   });

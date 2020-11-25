@@ -193,16 +193,19 @@
             </div>
             <div class="introduction__front-layer">
               <div class="introduction__title">
-                <span class="split-line">We help</span> <span class="split-line">organizations</span> <span class="split-line">develop better</span> <span class="split-line">learning practices</span> <span class="split-line">and cultures.</span>
+                <span class="split-line">Listening.</span><br>
+                <span class="split-line">Linking.</span><br>
+                <span class="split-line">Learning.</span>
+                <!-- <span class="split-line">We help</span> <span class="split-line">organizations</span> <span class="split-line">develop better</span> <span class="split-line">learning practices</span> <span class="split-line">and cultures.</span> -->
               </div>
               <div class="introduction__description animate-showing">Abc Advisory is a startup that provides fundamental tools,
                 resources, and services for learning and knowledge management. </div>
-              <button class="btn introduction__btn animate-showing" data-cursor-class="hover-link">
+              <!-- <button class="btn introduction__btn animate-showing" data-cursor-class="hover-link">
                 <span class="btn__text" data-text="Become a partner">
                   <span>Become a partner</span>
                 </span>
                 <span class="btn__arrow"><img src="images/btn-arrow.svg" alt=""></span>
-              </button>
+              </button> -->
             </div>
           </div>
         </div>
@@ -223,7 +226,7 @@
               <div class="service__title">Learning strategy and design</div>
               <div class="service__description">Helping organizations design learning strategies that align with program
                 goals, priorities, Rand resources</div>
-              <button class="service__btn round-outline-btn" data-cursor-class="hover-link">
+              <button class="service__btn round-outline-btn" data-cursor-class="hover-link" data-open-modal="#service1">
                 <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M9.03934 1.02865C9.3216 0.738413 9.78718 0.736577 10.0717 1.02458L13.7939 4.79218C13.9077 4.90736 13.9077 5.09264 13.7939 5.20782L10.0717 8.97542C9.78718 9.26342 9.3216 9.26159 9.03934 8.97135C8.77504 8.69956 8.76563 8.26976 9.01777 7.98667L11.678 5L9.01777 2.01333C8.76563 1.73024 8.77504 1.30044 9.03934 1.02865Z"
@@ -275,40 +278,40 @@
             Our team work with:
           </div>
           <div class="work__partners list">
-            <div class="animate-showing">
-              <div class="partner item">
-                <div class="partner__title item__title">USAID</div>
-                <div class="partner__number item__number">(01)</div>
+            <div class="list__row">
+              <div class="list__col">
+                <div class="animate-showing">
+                  <div class="partner item item--sm">
+                    <div class="partner__title item__title item__title--sm">USAID</div>
+                  </div>
+                </div>
+                <div class="animate-showing">
+                  <div class="partner item item--sm">
+                    <div class="partner__title item__title item__title--sm">OTI</div>
+                  </div>
+                </div>
+                <div class="animate-showing">
+                  <div class="partner item item--sm">
+                    <div class="partner__title item__title item__title--sm">Chemonics</div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="animate-showing">
-              <div class="partner item">
-                <div class="partner__title item__title">OTI</div>
-                <div class="partner__number item__number">(02)</div>
-              </div>
-            </div>
-            <div class="animate-showing">
-              <div class="partner item">
-                <div class="partner__title item__title">Chemonics</div>
-                <div class="partner__number item__number">(03)</div>
-              </div>
-            </div>
-            <div class="animate-showing">
-              <div class="partner item">
-                <div class="partner__title item__title">Proximity</div>
-                <div class="partner__number item__number">(04)</div>
-              </div>
-            </div>
-            <div class="animate-showing">
-              <div class="partner item">
-                <div class="partner__title item__title">UK FCO</div>
-                <div class="partner__number item__number">(05)</div>
-              </div>
-            </div>
-            <div class="animate-showing">
-              <div class="partner item">
-                <div class="partner__title item__title">DT Global</div>
-                <div class="partner__number item__number">(06)</div>
+              <div class="list__col">
+                <div class="animate-showing">
+                  <div class="partner item item--sm">
+                    <div class="partner__title item__title item__title--sm">Proximity</div>
+                  </div>
+                </div>
+                <div class="animate-showing">
+                  <div class="partner item item--sm">
+                    <div class="partner__title item__title item__title--sm">UK FCO</div>
+                  </div>
+                </div>
+                <div class="animate-showing">
+                  <div class="partner item item--sm">
+                    <div class="partner__title item__title item__title--sm">DT Global</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -320,7 +323,7 @@
           </button>
         </div>
       </div>
-      <div class="projects-section" data-section="Our Projects" data-section-color="#EBEDF0">
+      <!-- <div class="projects-section" data-section="Our Projects" data-section-color="#EBEDF0">
         <div class="projects-section__container">
           <div class="projects-section__title animate-showing">
             Some of our past projects include:
@@ -410,7 +413,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <footer class="footer" data-section="Let’s talk" data-section-color="#EBEDF0">
         <div class="footer__container">
           <div class="footer__text animate-showing" data-section-color="#fff">
@@ -463,6 +466,61 @@
       </div>
     </div>
   </div>
+  <!-- service modal -->
+  <div id="service1" class="modal">
+    <button class="modal__close round-outline-btn round-outline-btn--solid round-outline-btn--no-outline-on-hover" data-cursor-class="hover-link">
+      <svg width="9" height="8" viewBox="0 0 9 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M6.69755 7.77469C6.9955 8.07258 7.47858 8.07258 7.77653 7.77469C8.07449 7.4768 8.07449 6.99383 7.77653 6.69594L5.07921 3.99919L7.77474 1.30423C8.07269 1.00634 8.0727 0.523364 7.77474 0.225474C7.47679 -0.0724151 6.99371 -0.0724149 6.69576 0.225474L4.00022 2.92043L1.30263 0.223417C1.00467 -0.0744725 0.521595 -0.0744728 0.223642 0.223417C-0.0743122 0.521306 -0.0743113 1.00428 0.223642 1.30217L2.92124 3.99919L0.221848 6.69799C-0.0761054 6.99588 -0.0761054 7.47886 0.221848 7.77675C0.519801 8.07464 1.00288 8.07464 1.30083 7.77675L4.00022 5.07794L6.69755 7.77469Z"
+          fill="#1E1F21" />
+      </svg>
+    </button>
+    <div class="modal__inner">
+      <div class="modal__container">
+        <div class="project-modal">
+          <div class="project-modal__number">
+            01.
+          </div>
+          <div class="project-modal__title project-modal__title--service">Learning strategy and design</div>
+          <!-- <div class="project-modal__description">A territory-based aggregation of quantitative data and qualitative
+            insights.</div> -->
+          <!-- <div class="project-modal__image-wrapper">
+            <img src="images/1.gif" alt="Community profiles" class="project-modal__image">
+          </div> -->
+          <div class="project-modal__row project-modal__row--service">
+            <div class="project-modal__col project-modal__col--title">Problem:</div>
+            <div class="project-modal__col project-modal__col--description">
+              <p>
+                Helping organizations design learning strategies that align with program goals, priorities, Rand resources.
+              </p>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              </p>
+            </div>
+          </div>
+          <div class="project-modal__row project-modal__row--service">
+            <div class="project-modal__col project-modal__col--title">Case study:</div>
+            <div class="project-modal__col project-modal__col--description">
+              <img src="images/1.gif" alt="Community profiles" class="project-modal__image">
+              <div class="project-modal__subtitle">
+                Community profiles
+              </div>
+              <p>
+                Partnering with organizations to design and deliver targeted learning and mentorship programs . 
+              </p>
+              <button class="btn project-modal__btn" data-cursor-class="hover-link">
+                <span class="btn__text" data-text="See more">
+                  <span>See more</span>
+                </span>
+                <span class="btn__arrow"><img src="images/btn-arrow.svg" alt=""></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- about modal -->
   <div id="member1" class="modal modal--about">
     <button class="modal__close round-outline-btn round-outline-btn--solid round-outline-btn--no-outline-on-hover" data-cursor-class="hover-link">

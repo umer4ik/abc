@@ -1,10 +1,10 @@
 .hover-reveal {
   position: absolute;
   z-index: -1;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   top: 0;
-  left: 0;
+  right: 66px;
   pointer-events: none;
   opacity: 0;
   will-change: transform;

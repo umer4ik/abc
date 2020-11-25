@@ -12,6 +12,20 @@
       display: block;
     }
   }
+  &__row {
+    @include wider-than-tablet {
+      display: flex;
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+  }
+  &__col {
+    @include wider-than-tablet {
+      flex-grow: 1;
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
 }
 
 @keyframes tilt {

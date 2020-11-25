@@ -15,6 +15,11 @@ window.addEventListener('mousemove', (ev) => {
   mousepos.y -= window.scrollY;
 });
 
+const pullImageFromPlace = () => {
+  document.querySelectorAll('.hover-reveal.show').forEach((el) => el.classList.remove('show'));
+  document.querySelectorAll('.item.active').forEach((el) => el.classList.remove('active'));
+};
+
 export default class MenuItem {
   constructor(el, inMenuPosition, animatableProperties, images) {
     // el is the <a> with class "menu__item"
@@ -94,22 +99,29 @@ export default class MenuItem {
       this.hideImage();
     };
 
-    this.onClick = () => {
+    this.onMouseEnter = () => {
+      this.showImage();
+    };
+    this.onMouseLeave = () => {
+      this.hideImage();
+    };
+
+    this.onMobileClick = () => {
       if (window.innerWidth <= 1024) {
         this.pushImageToPlace();
       }
     };
 
-    this.DOM.el.addEventListener('mouseenter', this.mouseenterFn);
-    this.DOM.el.addEventListener('mouseleave', this.mouseleaveFn);
-    this.DOM.el.addEventListener('click', this.onClick);
+    this.DOM.el.addEventListener('mouseenter', this.onMouseEnter);
+    this.DOM.el.addEventListener('mouseleave', this.onMouseLeave);
+    this.DOM.el.addEventListener('click', this.onMobileClick);
   }
 
   destroy() {
     // TODO clear the DOM
-    this.DOM.el.removeEventListener('mouseenter', this.mouseenterFn);
-    this.DOM.el.removeEventListener('mouseleave', this.mouseleaveFn);
-    this.DOM.el.removeEventListener('click', this.onClick);
+    this.DOM.el.removeEventListener('mouseenter', this.onMouseEnter);
+    this.DOM.el.removeEventListener('mouseleave', this.onMouseLeave);
+    this.DOM.el.removeEventListener('click', this.onMobileClick);
   }
 
   // show the image element
@@ -142,10 +154,9 @@ export default class MenuItem {
   }
 
   pushImageToPlace() {
-    document.querySelectorAll('.hover-reveal.show-on-mobile').forEach((el) => el.classList.remove('show-on-mobile'));
-    document.querySelectorAll('.item.active-on-mobile').forEach((el) => el.classList.remove('active-on-mobile'));
-    this.DOM.reveal.classList.add('show-on-mobile');
-    this.DOM.el.classList.add('active-on-mobile');
+    pullImageFromPlace();
+    this.DOM.reveal.classList.add('show');
+    this.DOM.el.classList.add('active');
   }
 
   // hide the image element
