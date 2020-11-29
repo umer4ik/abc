@@ -1,7 +1,7 @@
 // Load jQuery from NPM
 /* eslint-disable no-new */
 import Navigo from 'navigo';
-import initEye from './eye';
+// import initEye from './eye';
 import magneticChart from './magnetic';
 import scrollSection from './scroll-section';
 import imageHover from './image-hover';
@@ -119,7 +119,6 @@ const pageFunctionsMap = {
       init: {
         func: scrollSection.init,
         delay: 100,
-        params: [true],
       },
       destroy: scrollSection.destroy,
     },
@@ -155,7 +154,6 @@ const pageFunctionsMap = {
       init: {
         func: scrollSection.init,
         delay: 100,
-        params: [true],
       },
       destroy: scrollSection.destroy,
     },
@@ -193,7 +191,7 @@ const pageFunctionsMap = {
 };
 
 setTimeout(() => {
-  initEye();
+  // initEye();
   initFabToTop();
 });
 

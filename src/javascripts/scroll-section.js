@@ -1,11 +1,14 @@
 const rail = document.querySelector('.lp__scroll-rail');
 const trigger = document.querySelector('.lp__scroll-trigger');
-const title = document.querySelector('.lp__title');
+const title = document.querySelector('#lp-title');
 const list = document.createElement('div');
 list.className = 'lp__sections-list';
 const backToTop = document.createElement('div');
 backToTop.innerHTML = 'Back to top';
 backToTop.setAttribute('data-cursor-class', 'hover-link');
+const arrowsSection = document.querySelector('.lp__sections-list--arrow');
+const backToTopArrow = document.querySelector('.lp__arrow--flip');
+const pointDown = document.querySelector('.lp__point');
 
 let sections; let colorSections;
 
@@ -19,7 +22,7 @@ const getNextSectionIndex = (scrollTop) => {
     const section = sections[i];
     const { offsetTop } = section;
     // console.log(scrollTop, offsetTop);
-    if (offsetTop > scrollTop) {
+    if (offsetTop > scrollTop - window.innerHeight / 2) {
       return i;
     }
   }
@@ -52,13 +55,14 @@ const scrollSection = {
     const ratio = railWidth / windowTotalHeight;
     const triggerWidth = windowHeight * ratio;
     trigger.style.width = `${triggerWidth}px`;
+    arrowsSection.style.transform = 'translateY(0)';
     updateSections();
     document.body.style.backgroundColor = colorSections[0].getAttribute('data-section-color');
     const setTriggerPosition = (scrollTop) => {
       trigger.style.transform = `translateX(${-scrollTop * ratio}px)`;
     };
     setTriggerPosition(window.scrollY);
-
+    pointDown.classList.remove('lp__point--up');
     title.innerHTML = '';
     list.innerHTML = '';
     if (!onlyTrigger) {
@@ -90,13 +94,22 @@ const scrollSection = {
       const colorSectionIndex = getColorSection(window.scrollY + window.innerHeight / 2);
       const color = colorSections[colorSectionIndex].getAttribute('data-section-color');
       document.body.style.backgroundColor = color;
+      if (window.scrollY + window.innerHeight > document.body.offsetHeight - 100) {
+        arrowsSection.style.transform = 'translateY(-14px)';
+        pointDown.classList.add('lp__point--up');
+      } else {
+        arrowsSection.style.transform = 'translateY(0)';
+        pointDown.classList.remove('lp__point--up');
+      }
     };
     window.addEventListener('scroll', scrollListener);
     backToTop.addEventListener('click', onBackToTopClick);
+    backToTopArrow.addEventListener('click', onBackToTopClick);
   },
   destroy() {
     list.style.transform = 'none';
     backToTop.removeEventListener('click', onBackToTopClick);
+    backToTopArrow.removeEventListener('click', onBackToTopClick);
     window.removeEventListener('scroll', scrollListener);
   },
 };

@@ -1,7 +1,10 @@
 function makeWord(word, slices, color = 'white', offset = 0, className) {
+  const container = document.querySelector('#abc-container');
+  if (!container) {
+    return;
+  }
   const wrapper = document.createElement('div');
   wrapper.classList.add('flip-wrapper');
-  const container = document.querySelector('#abc-container');
   container.appendChild(wrapper);
 
   const template = document.createElement('div');

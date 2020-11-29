@@ -62,27 +62,63 @@
     white-space: nowrap;
     margin-left: 14px;
     margin-right: 14px;
+    transition: transform .35s $easing;
     &--section {
-      text-align: right;
+      text-align: left;
       width: 80px;
       min-width: 80px;
       max-width: 80px;
       height: 16px;
       overflow: hidden;
     }
+    &--arrow {
+      height: 14px;
+      overflow: hidden;
+      width: 18px;
+    }
   }
   &__sections-list {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    align-items: flex-end;
     transition: transform .35s $easing;
+    &--arrow {
+      align-items: flex-end;
+    }
   }
   &__scroll-wrap {
     position: relative;
     transform: translateX(-156px);
   }
   &__arrow {
-    transform: rotate(90deg) translateX(1px);
+    transform: rotate(90deg);
+    position: relative;
+    &--flip {
+      right: 2px;
+      top: -2px;
+      transform: rotate(-90deg);
+    }
+  }
+  &__point {
+    width: 68px;
+    height: 68px;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity .35s $easing;
+    .ready & {
+      opacity: 1;
+    }
+    svg {
+      transition: transform .35s $easing;
+    }
+    &--up {
+      svg {
+        transform: scaleY(-1);
+      }
+    }
   }
 }
