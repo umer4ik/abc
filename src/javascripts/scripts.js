@@ -16,6 +16,7 @@ import scrollAnimation from './scroll-animation';
 import initPageTransition from './page-transition';
 import curtain from './curtain';
 import titleLinesInstance from './title-lines';
+import header from './header';
 
 const projectsImagesMap = {};
 // const abcBoardMembersImagesMap = {};
@@ -192,6 +193,7 @@ const pageFunctionsMap = {
 
 setTimeout(() => {
   // initEye();
+  header.init();
   initFabToTop();
 });
 
