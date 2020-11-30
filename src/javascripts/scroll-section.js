@@ -2,6 +2,7 @@ const rail = document.querySelector('.lp__scroll-rail');
 const trigger = document.querySelector('.lp__scroll-trigger');
 const title = document.querySelector('#lp-title');
 const list = document.createElement('div');
+const header = document.querySelector('.header');
 list.className = 'lp__sections-list';
 const backToTop = document.createElement('div');
 backToTop.innerHTML = 'Back to top';
@@ -94,6 +95,7 @@ const scrollSection = {
       const colorSectionIndex = getColorSection(window.scrollY + window.innerHeight / 2);
       const color = colorSections[colorSectionIndex].getAttribute('data-section-color');
       document.body.style.backgroundColor = color;
+      header.style.backgroundColor = color;
       if (window.scrollY + window.innerHeight > document.body.offsetHeight - 100) {
         arrowsSection.style.transform = 'translateY(-14px)';
         pointDown.classList.add('point--up');

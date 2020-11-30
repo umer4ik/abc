@@ -4,6 +4,7 @@ const show = () => {
   $('.curtain').addClass('show');
   $('.main').addClass('curtain-closed');
   $('.main').addClass('curtain-fired');
+  $('.header').removeAttr('style');
 };
 
 const hide = () => {
