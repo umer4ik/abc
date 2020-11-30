@@ -9,10 +9,10 @@ export default {
         direction = 'to-top';
       }
       lastScroll = pageOffset;
-      if (direction === 'to-top') {
-        header.classList.remove('header--hide');
-      } else {
+      if (direction === 'to-bottom' && pageOffset > 200) {
         header.classList.add('header--hide');
+      } else {
+        header.classList.remove('header--hide');
       }
     });
   },
