@@ -85,6 +85,9 @@
     @include wider-than-tablet {
       display: none;
     }
+    @media screen and (max-width: 414px) {
+      bottom: 153px;
+    }
   }
 }
 .cursor {

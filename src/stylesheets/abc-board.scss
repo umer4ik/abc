@@ -27,6 +27,7 @@
     right: 58px;
     bottom: 4px;
     z-index: 2;
+    padding: 0;
     @include wider-than-tablet {
       width: 80px;
       height: 80px;
