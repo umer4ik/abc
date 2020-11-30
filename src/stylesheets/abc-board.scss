@@ -22,4 +22,16 @@
   &__members {
     padding-top: 17px;
   }
+  &__member-btn {
+    margin-right: 20px;
+    @include wider-than-tablet {
+      width: 80px;
+      height: 80px;
+      margin: -24px 224px -13px auto;
+      opacity: 0;
+    }
+    .abc-board__member:hover & {
+      opacity: 1;
+    }
+  }
 }

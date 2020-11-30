@@ -14,6 +14,11 @@
     margin-top: 10px;
     padding-bottom: 20px;
     overflow: hidden;
+    @include wider-than-tablet {
+      margin-top: 0;
+      height: 100%;
+      overflow: visible;
+    }
   }
   @include wider-than-tablet {
     width: 602px;
@@ -35,6 +40,10 @@
     padding: 30px 20px;
     .modal--about & {
       padding-top: 0;
+      padding-bottom: 0;
+      @include wider-than-tablet {
+        padding-top: 10px;
+      }
     }
   }
   &.open {

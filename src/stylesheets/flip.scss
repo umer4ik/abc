@@ -1,10 +1,7 @@
 .flip-container {
-  position: relative;
-  height: 280px;
-  background-color: #F4E4D2;
-  pointer-events: none;
-  @include wider-than-tablet {
-    height: 400px;
+  width: 100%;
+  img {
+    width: 100%;
   }
 }
 .flip-wrapper {

@@ -18,7 +18,7 @@ import curtain from './curtain';
 import titleLinesInstance from './title-lines';
 
 const projectsImagesMap = {};
-const abcBoardMembersImagesMap = {};
+// const abcBoardMembersImagesMap = {};
 
 function importAll(r, map) {
   r.keys().forEach((key) => {
@@ -28,10 +28,10 @@ function importAll(r, map) {
 }
 
 importAll(require.context('../images/projects/', true, /\.png$/), projectsImagesMap);
-importAll(require.context('../images/abc-board-members/', true, /\.png$/), abcBoardMembersImagesMap);
+// importAll(require.context('../images/abc-board-members/', true, /\.png$/), abcBoardMembersImagesMap);
 
 const projectImages = Object.entries(projectsImagesMap);
-const abcBoardMembersImages = Object.entries(abcBoardMembersImagesMap);
+// const abcBoardMembersImages = Object.entries(abcBoardMembersImagesMap);
 
 const run = (nameOfTheRunner = 'init') => (...initializers) => initializers.forEach((initializer) => {
   const runner = initializer[nameOfTheRunner];
@@ -161,13 +161,13 @@ const pageFunctionsMap = {
       init: initFlipText,
       destroy: () => {},
     },
-    {
-      init: {
-        func: imageHover.init,
-        params: [abcBoardMembersImages],
-      },
-      destroy: imageHover.destroy,
-    },
+    // {
+    //   init: {
+    //     func: imageHover.init,
+    //     params: [abcBoardMembersImages],
+    //   },
+    //   destroy: imageHover.destroy,
+    // },
     {
       init: modals.init,
       destroy: modals.destroy,
