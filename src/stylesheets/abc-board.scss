@@ -23,12 +23,17 @@
     padding-top: 17px;
   }
   &__member-btn {
-    margin-right: 20px;
+    position: absolute;
+    right: 58px;
+    bottom: 4px;
+    z-index: 2;
     @include wider-than-tablet {
       width: 80px;
       height: 80px;
-      margin: -24px 224px -13px auto;
+      right: 0;
+      bottom: 9px;
       opacity: 0;
+      margin-right: 0;
     }
     .abc-board__member:hover & {
       opacity: 1;
