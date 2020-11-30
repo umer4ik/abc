@@ -62,7 +62,7 @@ const scrollSection = {
       trigger.style.transform = `translateX(${-scrollTop * ratio}px)`;
     };
     setTriggerPosition(window.scrollY);
-    pointDown.classList.remove('lp__point--up');
+    pointDown.classList.remove('point--up');
     title.innerHTML = '';
     list.innerHTML = '';
     if (!onlyTrigger) {
@@ -96,10 +96,10 @@ const scrollSection = {
       document.body.style.backgroundColor = color;
       if (window.scrollY + window.innerHeight > document.body.offsetHeight - 100) {
         arrowsSection.style.transform = 'translateY(-14px)';
-        pointDown.classList.add('lp__point--up');
+        pointDown.classList.add('point--up');
       } else {
         arrowsSection.style.transform = 'translateY(0)';
-        pointDown.classList.remove('lp__point--up');
+        pointDown.classList.remove('point--up');
       }
     };
     window.addEventListener('scroll', scrollListener);

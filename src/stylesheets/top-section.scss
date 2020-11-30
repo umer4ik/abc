@@ -1,1 +1,13 @@
-// .top-section {}
+.top-section {
+  height: calc(100vh - 100px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 153px;
+  @include wider-than-tablet {
+    display: block;
+    padding-bottom: 0;
+    height: auto;
+  }
+}

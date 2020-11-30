@@ -6,6 +6,9 @@ const titleLinesLayout = () => {
     if (line.querySelector('split-line__transparent-text')) {
       return;
     }
+    if (line.classList.contains('split-line--skip-mobile') && window.innerWidth < 1024) {
+      return;
+    }
     l.innerHTML = `<span class="split-line__transparent-text">${line.innerHTML}</span><span class="split-line__hidden-text">${line.innerHTML}</span>`;
   });
 };

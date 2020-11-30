@@ -28,7 +28,7 @@ window.addEventListener('scroll', getPageYScroll);
 window.addEventListener('resize', getInnerHeight);
 
 class ScrollAnimation {
-  constructor(selector = '.animate-showing', showingClassName = 'animate-showing--showed') {
+  constructor(selector = '.animate-showing, .animate-showing-mobile', showingClassName = 'animate-showing--showed') {
     this.selector = selector;
     this.showingClassName = showingClassName;
     this.scrollTarget = window;

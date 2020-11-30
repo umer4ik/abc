@@ -2,6 +2,11 @@
   overflow: hidden;
   display: inline-block;
   position: relative;
+  &--skip-mobile {
+    @include phone {
+      display: inline;
+    }
+  }
   &__hidden-text {
     transform: translateY(100%);
     user-select: none;

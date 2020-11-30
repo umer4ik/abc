@@ -58,7 +58,7 @@
   &__front-layer {
     position: relative;
     z-index: 2;
-    padding-top: 40px;
+    padding-top: 64px;
     @include wider-than-tablet {
       padding-top: 0;
       margin-top: 208px;
@@ -69,11 +69,21 @@
     font-size: 14px;
     line-height: 140%;
     padding-bottom: 24px;
+    max-width: 200px;
     @include wider-than-tablet {
       font-size: 20px;
       max-width: 376px;
       padding-bottom: 42px;
       padding-top: 31px;
+    }
+  }
+  &__point {
+    display: flex;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    @include wider-than-tablet {
+      display: none;
     }
   }
 }

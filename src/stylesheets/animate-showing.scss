@@ -11,6 +11,18 @@
   }
 }
 
+.animate-showing-mobile {
+  @include tighter-than-tablet {
+    transition: opacity .4s $easing, transform .4s $easing;
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  &.animate-showing--showed {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .delay-0 {
   @include wider-than-tablet {
     transition-delay: 0s, 0s;
