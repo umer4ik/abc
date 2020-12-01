@@ -1,5 +1,7 @@
 .introduction {
-  overflow: hidden;
+  @include wider-than-tablet {
+    overflow: hidden;
+  }
   &__container {
     position: relative;
     padding: 20px;
@@ -86,7 +88,7 @@
       display: none;
     }
     @media screen and (max-width: 414px) {
-      bottom: 153px;
+      bottom: -78px;
     }
   }
 }
