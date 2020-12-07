@@ -91,6 +91,43 @@
       bottom: -78px;
     }
   }
+  &__link-to-about {
+    display: inline-block;
+    margin-top: 22px;
+    position: relative;
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 100%;
+      background-color: $text-color;
+      bottom: 0;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: 100% 50%;
+      transition: transform .35s $easing;
+    }
+    &::before {
+      transform: scaleX(1);
+      transition: none;
+    }
+    &::after {
+      display: inline-block;
+      transition: none;
+    }
+    &:hover::before {
+      transform-origin: 100% 50%;
+      transform: scaleX(0);
+      transition: transform .35s $easing;
+    }
+    &:hover::after {
+      transform-origin: 0% 50%;
+      transform: scaleX(1);
+      transition: transform .35s $easing;
+      transition-delay: .35s;
+    }
+  }
 }
 .cursor {
   display: none;
