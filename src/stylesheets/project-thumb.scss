@@ -5,6 +5,7 @@
     @include wider-than-tablet {
       padding: 20px;
       display: flex;
+      height: 100%;
     }
     .projects-page__list & {
       @include wider-than-tablet {
@@ -18,10 +19,12 @@
       margin-right: 20px;
       padding-top: 16px;
       padding-left: 23px;
+      display: flex;
+      flex-direction: column;
     }
-    @include desktop {
-      margin-right: 90px;
-    }
+    // @include desktop { only for carousel
+    //   margin-right: 90px;
+    // }
     .projects-page__list & {
       @include wider-than-tablet {
         padding-left: 10px;
@@ -53,6 +56,7 @@
     line-height: 140%;
     padding-top: 12px;
     @include wider-than-tablet {
+      margin-bottom: 35px;
       font-size: 16px;
       line-height: 150%;
     }
@@ -61,7 +65,7 @@
     margin-top: 19px;
     margin-bottom: 30px;
     @include wider-than-tablet {
-      margin-top: 35px;
+      margin-top: auto;
       margin-bottom: 37px;
     }
   }
@@ -86,16 +90,6 @@
     }
   }
   &:nth-child(2) {
-    .project-thumb__image {
-      background-image: url('../images/2.gif');
-    }
-  }
-  &:nth-child(3) {
-    .project-thumb__image {
-      background-image: url('../images/3.gif');
-    }
-  }
-  &:nth-child(4) {
     .project-thumb__image {
       background-image: url('../images/4.gif');
     }

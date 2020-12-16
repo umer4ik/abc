@@ -25,6 +25,12 @@ button:focus {
     }
   }
 }
+.wtt {
+  display: none;
+  @include wider-than-tablet {
+    display: block;
+  }
+}
 body {
   background-color: #E7F1F2;
   transition: background-color 1s $easing;
