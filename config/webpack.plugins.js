@@ -64,6 +64,7 @@ const generateHTMLPlugins = () => glob.sync('./src/**/*.html').map((dir) => {
 
   return new HTMLWebpackPlugin({
     filename,
+    minify: false,
     template: path.join(config.root, config.paths.src, filename),
     meta: {
       viewport: config.viewport,

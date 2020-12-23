@@ -17,6 +17,7 @@ import initPageTransition from './page-transition';
 import curtain from './curtain';
 import titleLinesInstance from './title-lines';
 import header from './header';
+import projects from './projects';
 
 const projectsImagesMap = {};
 // const abcBoardMembersImagesMap = {};
@@ -85,8 +86,15 @@ const pageFunctionsMap = {
       destroy: imageHover.destroy,
     },
     {
-      init: carousel.init,
+      init: {
+        func: carousel.init,
+        delay: 100,
+      },
       destroy: carousel.destroy,
+    },
+    {
+      init: projects.init,
+      destroy: projects.destroy,
     },
     {
       init: modals.init,
