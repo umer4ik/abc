@@ -19,20 +19,20 @@ import titleLinesInstance from './title-lines';
 import header from './header';
 import projects from './projects';
 
-const projectsImagesMap = {};
+// const projectsImagesMap = {};
 // const abcBoardMembersImagesMap = {};
 
-function importAll(r, map) {
-  r.keys().forEach((key) => {
-    const m = map;
-    m[key] = r(key);
-  });
-}
+// function importAll(r, map) {
+//   r.keys().forEach((key) => {
+//     const m = map;
+//     m[key] = r(key);
+//   });
+// }
 
-importAll(require.context('../images/projects/', true, /\.png$/), projectsImagesMap);
+// importAll(require.context('../images/projects/', true, /\.png$/), projectsImagesMap);
 // importAll(require.context('../images/abc-board-members/', true, /\.png$/), abcBoardMembersImagesMap);
 
-const projectImages = Object.entries(projectsImagesMap);
+// const projectImages = Object.entries(projectsImagesMap);
 // const abcBoardMembersImages = Object.entries(abcBoardMembersImagesMap);
 
 const run = (nameOfTheRunner = 'init') => (...initializers) => initializers.forEach((initializer) => {
@@ -79,10 +79,7 @@ const pageFunctionsMap = {
       destroy: titleLinesInstance.destroy,
     },
     {
-      init: {
-        func: imageHover.init,
-        params: [projectImages],
-      },
+      init: imageHover.init,
       destroy: imageHover.destroy,
     },
     {
