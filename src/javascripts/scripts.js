@@ -255,9 +255,9 @@ initLoader().then(() => {
       });
   };
   router.on({
-    'about.html': createRouterHandler('about.html', 'about'),
-    'projects.html': createRouterHandler('projects.html', 'projects'),
-    '': createRouterHandler('index.html', 'index'),
+    [window.PAGES.ABOUT.HREF]: createRouterHandler(window.PAGES.ABOUT.ENDPOINT, 'about'),
+    [window.PAGES.PROJECTS.HREF]: createRouterHandler(window.PAGES.PROJECTS.ENDPOINT, 'projects'),
+    [window.PAGES.HOME.HREF]: createRouterHandler(window.PAGES.HOME.ENDPOINT, 'index'),
   });
 
   initPageTransition(router);
